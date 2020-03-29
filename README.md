@@ -22,10 +22,10 @@
   - [ ] メールアドレス、名前、パスワードは必須
 - [ ] 一覧表示機能
 - [ ] 投稿機能
-  - [ ] 動画投稿機能
-    - [ ] 動画と記事内容は必須
   - [ ] 画像投稿機能
-    - [ ] 画像と記事内容は必須
+    - [ ] タイトルと記事は必須
+  - [ ] 動画投稿機能
+    - [ ] タイトルと記事は必須
   - [ ] ラベル機能
     - [ ] 投稿にラベルを付けられる
 - [ ] 編集及び削除機能
@@ -37,16 +37,16 @@
   - [ ] 編集と削除はコメントした本人のみ可能
 
 ## カタログ設計
-
+https://docs.google.com/spreadsheets/d/1Df4gSpSIaEFDmXrI4F7otvj-rqazm9uOGQzy4-CXAMk/edit#gid=0
 
 ## テーブル定義
-
+https://docs.google.com/spreadsheets/d/1nz9gxGKoAtk0wSerywFglZlWo8fkQn_TDJFOJ88dOcQ/edit#gid=1928497795
 
 ## ER図
-
+https://docs.google.com/spreadsheets/d/1QfhkA_4iviaoU6EXdT1qwMomEVFYralSEZ4nHtlP1P8/edit#gid=471519163
 
 ## 画面遷移図
-
+https://docs.google.com/spreadsheets/d/1I0OqUoHOtE347BnKDzB3To1rI60N_sGMarBYTYWB-JI/edit#gid=842425362
 
 ## ワイヤーフレーム
 
