@@ -1,24 +1,60 @@
-# README
+# chibasampo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
+- 千葉の動画と画像を投稿することに特化したアプリ
+- お気に入り機能とコメントを投稿することができます
 
-Things you may want to cover:
+## コンセプト
+千葉を散歩するアプリ
 
-* Ruby version
+## 背景
+- 千葉は令和元年台風15号及び19号並びに10月25日の大雨で甚大な被害を受けました
+- 微力ながら千葉を応援したいということで千葉を散歩するようなアプリを作ります
 
-* System dependencies
+## バージョン
+- Ruby 2.6.5
+- Ruby on Rails 5.2.4.2
+- PostgreSQL 12.1
 
-* Configuration
+## 機能一覧
+- [ ] ログイン機能
+- [ ] ユーザー登録機能
+  - [ ] メールアドレス、名前、パスワードは必須
+- [ ] 一覧表示機能
+- [ ] 投稿機能
+  - [ ] 動画投稿機能
+    - [ ] 動画と記事内容は必須
+  - [ ] 画像投稿機能
+    - [ ] 画像と記事内容は必須
+  - [ ] ラベル機能
+    - [ ] 投稿にラベルを付けられる
+- [ ] 編集及び削除機能
+  - [ ] 投稿者のみ可能
+- [ ] お気に入り機能
+  - [ ] 1つの投稿に1人1回しかできない
+  - [ ] 自分自身の投稿はお気に入りできない
+- [ ] コメント機能
+  - [ ] 編集と削除はコメントした本人のみ可能
 
-* Database creation
+## カタログ設計
 
-* Database initialization
 
-* How to run the test suite
+## テーブル定義
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## ER図
 
-* ...
+
+## 画面遷移図
+
+
+## ワイヤーフレーム
+
+
+## 使用予定Gem
+- devise
+- carrierwave
+- minimagick
+- ffmpeg
+- fog-aws
+- bootstrap
