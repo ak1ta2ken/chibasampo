@@ -7,12 +7,6 @@
 ## コンセプト
 - 千葉を散歩するアプリ
 
-## 背景
-- 千葉は令和元年台風15号及び19号並びに10月25日の大雨で大きな被害を受けました
-- 知り合いの南房総市の農家さん※はビニールハウスがすべて使用不可能になりました
-- ※厳しい状況ですが被災した地域の希望となれるようクラウドファンディング挑戦中
-- 僕も微力ながら千葉を応援したいということで千葉を散歩するようなアプリ作ります
-
 ## バージョン
 - Ruby 2.6.5
 - Ruby on Rails 5.2.4.2
@@ -51,7 +45,7 @@ https://docs.google.com/spreadsheets/d/1QfhkA_4iviaoU6EXdT1qwMomEVFYralSEZ4nHtlP
 https://docs.google.com/spreadsheets/d/1I0OqUoHOtE347BnKDzB3To1rI60N_sGMarBYTYWB-JI/edit#gid=842425362
 
 ## ワイヤーフレーム
-
+https://docs.google.com/spreadsheets/d/1RTX7PIooX_aNng91d0IQyjZSSyntGcTke_iaE1l0Acw/edit#gid=52021014
 
 ## 使用予定Gem
 - devise
