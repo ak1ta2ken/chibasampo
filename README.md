@@ -20,8 +20,6 @@
 - [ ] 投稿機能
   - [ ] 画像投稿機能
     - [ ] タイトルと記事は必須
-  - [ ] 動画投稿機能
-    - [ ] タイトルと記事は必須
   - [ ] ラベル機能
     - [ ] 投稿にラベルを付けられる
 - [ ] 編集及び削除機能
@@ -31,6 +29,8 @@
   - [ ] 自分自身の投稿はお気に入りできない
 - [ ] コメント機能
   - [ ] 編集と削除はコメントした本人のみ可能
+- [ ] 検索機能
+  - [ ] ラベルで検索できる
 
 ## カタログ設計
 https://docs.google.com/spreadsheets/d/e/2PACX-1vRMapt6GdP6waWDU6D-nmvOuKQ8jzI6iPZgX6KobyYp3H5MXBsI4HY6F3u5Mear_UBYjRSFURuc-HCA/pubhtml?gid=0&single=true
@@ -42,7 +42,7 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0PW9B-K_xQpHdvZNBZ5TiadWYqTHqW
 https://docs.google.com/spreadsheets/d/e/2PACX-1vTs9z0jbT7haiKO_WQSiJAnbfMG7ejoJbZf9_GZy9XsZmYNXG6k2kMNCvoyMGOeEgRQXY4GfbBOZIHo/pubhtml
 
 ## 画面遷移図
-https://docs.google.com/spreadsheets/d/e/2PACX-1vTlmaSdpH-SyowpUbRYv-RzPPW1KRhe_2ScSncHX4_xEaTWNzwhj07yyCbZQmgxP-Ty0F6lSGU6f7tO/pubhtml?gid=1397340628&single=true
+https://docs.google.com/spreadsheets/d/e/2PACX-1vTlmaSdpH-SyowpUbRYv-RzPPW1KRhe_2ScSncHX4_xEaTWNzwhj07yyCbZQmgxP-Ty0F6lSGU6f7tO/pubhtml
 
 ## ワイヤーフレーム
 https://docs.google.com/spreadsheets/d/e/2PACX-1vSeudi-5m7XKdCs1sPI1ICZdrDTJClxU1rQuG7fwTX-z2j0qAV8dVL2I7A8o2KeWk8gZnK59-v6uRSE/pubhtml
@@ -51,6 +51,6 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vSeudi-5m7XKdCs1sPI1ICZdrDTJClxU
 - devise
 - carrierwave
 - minimagick
-- ffmpeg
+- ransack
 - fog-aws
 - bootstrap
