@@ -33,19 +33,19 @@
   - [ ] 編集と削除はコメントした本人のみ可能
 
 ## カタログ設計
-https://docs.google.com/spreadsheets/d/1Df4gSpSIaEFDmXrI4F7otvj-rqazm9uOGQzy4-CXAMk/edit#gid=0
+https://docs.google.com/spreadsheets/d/e/2PACX-1vRMapt6GdP6waWDU6D-nmvOuKQ8jzI6iPZgX6KobyYp3H5MXBsI4HY6F3u5Mear_UBYjRSFURuc-HCA/pubhtml?gid=0&single=true
 
 ## テーブル定義
-https://docs.google.com/spreadsheets/d/1nz9gxGKoAtk0wSerywFglZlWo8fkQn_TDJFOJ88dOcQ/edit#gid=1928497795
+https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0PW9B-K_xQpHdvZNBZ5TiadWYqTHqWLiS9go8oc-dOECdV1bPKtMWdvcHUjqZE68YBNhjIM41Jdhy/pubhtml
 
 ## ER図
-https://docs.google.com/spreadsheets/d/1QfhkA_4iviaoU6EXdT1qwMomEVFYralSEZ4nHtlP1P8/edit#gid=471519163
+https://docs.google.com/spreadsheets/d/e/2PACX-1vTs9z0jbT7haiKO_WQSiJAnbfMG7ejoJbZf9_GZy9XsZmYNXG6k2kMNCvoyMGOeEgRQXY4GfbBOZIHo/pubhtml
 
 ## 画面遷移図
-https://docs.google.com/spreadsheets/d/1I0OqUoHOtE347BnKDzB3To1rI60N_sGMarBYTYWB-JI/edit#gid=842425362
+https://docs.google.com/spreadsheets/d/e/2PACX-1vTlmaSdpH-SyowpUbRYv-RzPPW1KRhe_2ScSncHX4_xEaTWNzwhj07yyCbZQmgxP-Ty0F6lSGU6f7tO/pubhtml?gid=1397340628&single=true
 
 ## ワイヤーフレーム
-https://docs.google.com/spreadsheets/d/1RTX7PIooX_aNng91d0IQyjZSSyntGcTke_iaE1l0Acw/edit#gid=52021014
+https://docs.google.com/spreadsheets/d/e/2PACX-1vSeudi-5m7XKdCs1sPI1ICZdrDTJClxU1rQuG7fwTX-z2j0qAV8dVL2I7A8o2KeWk8gZnK59-v6uRSE/pubhtml
 
 ## 使用予定Gem
 - devise
