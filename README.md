@@ -9,8 +9,8 @@
 
 ## 背景
 - 千葉は令和元年台風15号及び台風19号並びに10月25日の大雨で大きな被害を受けました
-- 僕も県民として微力ながら千葉を応援したい、そのためには千葉を知ることから始めよう
-- 千葉を散歩するようなアプリを作ることで、いろんな人が千葉を知るきっかけになれたら
+- 県民として微力ながら千葉を応援したいのでそのためには千葉を知ることから始めよう
+- 千葉を散歩するようなアプリを作ることでいろんな人が千葉を知るきっかけになれたら
 
 ## バージョン情報
 - Ruby 2.6.5
@@ -38,7 +38,7 @@
   - [ ] ラベルで検索できる
 
 ## カタログ設計
-https://docs.google.com/spreadsheets/d/e/2PACX-1vRMapt6GdP6waWDU6D-nmvOuKQ8jzI6iPZgX6KobyYp3H5MXBsI4HY6F3u5Mear_UBYjRSFURuc-HCA/pubhtml?gid=0&single=true
+https://docs.google.com/spreadsheets/d/e/2PACX-1vRMapt6GdP6waWDU6D-nmvOuKQ8jzI6iPZgX6KobyYp3H5MXBsI4HY6F3u5Mear_UBYjRSFURuc-HCA/pubhtml
 
 ## テーブル定義
 https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0PW9B-K_xQpHdvZNBZ5TiadWYqTHqWLiS9go8oc-dOECdV1bPKtMWdvcHUjqZE68YBNhjIM41Jdhy/pubhtml
