@@ -1,0 +1,17 @@
+<h1>散歩一覧</h1>
+<p><%= notice %></p>
+<table>
+  <tr>
+    <th>画像</th>
+  </tr>
+  <% @strolls.each do |stroll| %>
+    <tr>
+      <td><%= image_tag(stroll.image.url) if stroll.image && stroll.image.url %></td>
+      <td><%= link_to '確認', stroll_path(stroll.id) %></td>
+      <td><%= link_to '編集', edit_stroll_path(stroll.id) %></td>
+      <td><%= link_to '削除', stroll_path(stroll.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+    </tr>
+  <% end %>
+</table>
+<br>
+<%= link_to '新しく散歩を投稿する', new_stroll_path %>
