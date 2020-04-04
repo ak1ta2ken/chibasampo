@@ -1,5 +1,6 @@
 class StrollsController < ApplicationController
   before_action :set_stroll, only: [:show, :edit, :update, :destroy]
+  # before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
     @strolls = Stroll.all
   end
