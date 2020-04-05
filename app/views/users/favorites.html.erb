@@ -1,0 +1,23 @@
+<h1><%= @user.name %>のお気に入り一覧</h1>
+
+<% @favorites.each do |favorite| %>
+  <% stroll = Stroll.find(favorite.stroll_id) %>
+
+  <table>
+    <tr>
+      <td>お名前:<%= stroll.user.name %></td>
+    </tr>
+    <tr>
+      <td>画像:<%= image_tag stroll.image.url %></td>
+    </tr>
+    <tr>
+      <td>タイトル:<%= stroll.title %></td>
+    </tr>
+    <tr>
+      <td>内容:<%= stroll.content %></td>
+    </tr>
+  </table>
+
+<% end %>
+
+<%= link_to "一覧画面にもどる", strolls_path %>
