@@ -17,6 +17,7 @@ class StrollsController < ApplicationController
     end
   end
   def show
+    @favorite = current_user.favorites.find_by(stroll_id: @stroll.id)
   end
   def edit
   end
