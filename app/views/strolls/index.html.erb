@@ -1,8 +1,5 @@
 <h1>散歩一覧</h1>
 <table>
-  <tr>
-    <th>画像</th>
-  </tr>
   <% @strolls.each do |stroll| %>
     <tr>
       <td><%= image_tag(stroll.image.url) if stroll.image && stroll.image.url %></td>

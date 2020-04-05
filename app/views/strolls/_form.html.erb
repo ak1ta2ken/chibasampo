@@ -1,6 +1,5 @@
 <%= form_with(model: @stroll, local:true) do |form| %>
   <div class="stroll_image">
-    <%= form.label :image %>
     <%= image_tag(@stroll.image.url) if @stroll.image && @stroll.image.url %>
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>

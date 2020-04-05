@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   get 'users/show' => 'users#show'
-  root  'strolls#index'
+  root  'strolls#chiba'
   resources :strolls
   resources :favorites, only: [:create, :destroy]
   resources :users, only: [:new, :create, :show, :edit, :update] do
