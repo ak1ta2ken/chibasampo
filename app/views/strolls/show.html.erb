@@ -1,5 +1,6 @@
 <h1>散歩詳細画面</h1>
 <%= image_tag @stroll.image.url %>
+<p>お名前: <%= @stroll.user.name %></p>
 <p>タイトル: <%= @stroll.title %></p>
 <p>内容: <%= @stroll.content %></p>
 <%= link_to "散歩一覧画面にもどる", strolls_path %>

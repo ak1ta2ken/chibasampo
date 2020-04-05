@@ -1,6 +1,6 @@
 class StrollsController < ApplicationController
   before_action :set_stroll, only: [:show, :edit, :update, :destroy]
-  # before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
     @strolls = Stroll.all
   end
@@ -9,6 +9,7 @@ class StrollsController < ApplicationController
   end
   def create
     @stroll = Stroll.create(stroll_params)
+    @stroll.user_id = current_user.id
     if @stroll.save
       redirect_to strolls_path, notice: "散歩を作成しました！"
     else
