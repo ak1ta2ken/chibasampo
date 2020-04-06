@@ -4,8 +4,10 @@
     <tr>
       <td><%= image_tag(stroll.image.url) if stroll.image && stroll.image.url %></td>
       <td><%= link_to '確認', stroll_path(stroll.id) %></td>
-      <td><%= link_to '編集', edit_stroll_path(stroll.id) %></td>
-      <td><%= link_to '削除', stroll_path(stroll.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+      <% if current_user.id == stroll.user.id %>
+        <td><%= link_to '編集', edit_stroll_path(stroll.id) %></td>
+        <td><%= link_to '削除', stroll_path(stroll.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>

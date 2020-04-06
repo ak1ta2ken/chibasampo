@@ -20,6 +20,9 @@ class StrollsController < ApplicationController
     @favorite = current_user.favorites.find_by(stroll_id: @stroll.id) if current_user
   end
   def edit
+    if current_user.id != @stroll.user.id
+      redirect_to strolls_path, notice: "権限がありません"
+    end
   end
   def update
     if @stroll.update(stroll_params)
@@ -29,8 +32,12 @@ class StrollsController < ApplicationController
     end
   end
   def destroy
-    @stroll.destroy
-    redirect_to strolls_path, notice:"散歩を削除しました！"
+    if current_user.id != @stroll.user.id
+      redirect_to strolls_path, notice: "権限がありません"
+    else
+      @stroll.destroy
+      redirect_to strolls_path, notice:"散歩を削除しました！"
+    end
   end
 
   private
