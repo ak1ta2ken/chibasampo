@@ -54,8 +54,8 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vSeudi-5m7XKdCs1sPI1ICZdrDTJClxU
 
 ## 使用予定Gem
 - devise
+- devise-i18n
 - carrierwave
 - minimagick
 - ransack
 - fog-aws
-- bootstrap
