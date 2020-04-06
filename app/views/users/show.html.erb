@@ -4,6 +4,6 @@
 <p>お名前: <%= @user.name %></p>
 <p>メールアドレス: <%= @user.email %></p>
 
-<%= link_to '編集', edit_user_registration_path(@user) %>
+<%= link_to 'プロフィール編集', edit_user_registration_path(@user) %>
 <%= link_to 'お気に入り一覧', favorites_user_path(@user.id) %>
-<%= link_to '一覧画面にもどる', strolls_path %>
+<%= link_to '散歩一覧', strolls_path %>

@@ -1,17 +1,22 @@
 <%= form_with(model: @stroll, local:true) do |form| %>
+  <br>
   <div class="stroll_image">
     <%= image_tag(@stroll.image.url) if @stroll.image && @stroll.image.url %>
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
   </div>
+  <br>
   <div class="stroll_title">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
+  <br>
   <div class="stroll_content">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
+    <%= form.label :content %>&emsp;&emsp;
+    <%= form.text_area :content %>
   </div>
+  <br>
   <%= form.submit %>
 <% end %>
-<%= link_to "散歩一覧画面にもどる", strolls_path %>
+<br>
+<%= link_to "散歩一覧に戻る", strolls_path %>
