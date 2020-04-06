@@ -11,13 +11,13 @@ class StrollsController < ApplicationController
     @stroll = Stroll.create(stroll_params)
     @stroll.user_id = current_user.id
     if @stroll.save
-      redirect_to strolls_path, notice: "散歩を作成しました！"
+      redirect_to strolls_path, notice: "散歩を投稿しました！"
     else
       render :new
     end
   end
   def show
-    @favorite = current_user.favorites.find_by(stroll_id: @stroll.id)
+    @favorite = current_user.favorites.find_by(stroll_id: @stroll.id) if current_user
   end
   def edit
   end
