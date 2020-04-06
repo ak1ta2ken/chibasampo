@@ -7,19 +7,19 @@
   <div class="field">
     <%= f.label :password, t('.new_password') %><br />
     <% if @minimum_password_length %>
-      <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em><br />
+      <%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %><br />
     <% end %>
     <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
   </div>
-
+  <br>
   <div class="field">
-    <%= f.label :password_confirmation, t('.confirm_new_password') %><br />
+    <%= f.label :password_confirmation, "確認用パスワード" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
+  <br>
   <div class="actions">
     <%= f.submit t('.change_my_password') %>
   </div>
 <% end %>
-
+<br>
 <%= render "devise/shared/links" %>
