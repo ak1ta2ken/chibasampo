@@ -1,4 +1,14 @@
 <%= form_with(model: @stroll, local:true) do |form| %>
+<% if @stroll.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @stroll.errors.count %>件のエラーが発生したため散歩は保存されませんでした。</h2>
+    <ul>
+    <% @stroll.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
   <br>
   <div class="stroll_image">
     <%= image_tag(@stroll.image.url) if @stroll.image && @stroll.image.url %>
