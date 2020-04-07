@@ -21,7 +21,7 @@ class StrollsController < ApplicationController
   end
   def edit
     if current_user.id != @stroll.user.id
-      redirect_to strolls_path, notice: "権限がありません"
+      redirect_to strolls_path, notice: "権限がありません。"
     end
   end
   def update
@@ -33,7 +33,7 @@ class StrollsController < ApplicationController
   end
   def destroy
     if current_user.id != @stroll.user.id
-      redirect_to strolls_path, notice: "権限がありません"
+      redirect_to strolls_path, notice: "権限がありません。"
     else
       @stroll.destroy
       redirect_to strolls_path, notice:"散歩を削除しました！"
