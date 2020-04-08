@@ -13,7 +13,7 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
-  has_many :strolls
+  has_many :strolls, dependent: :destroy
   has_many :favorites, dependent: :destroy
   validates :name, presence: true
   validates :name, length: { maximum: 15 }
