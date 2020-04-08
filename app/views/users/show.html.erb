@@ -2,6 +2,9 @@
 <p><%= notice %></p>
 <%= image_tag @user.profile_image.url if @user.profile_image && @user.profile_image.url%>
 <p>プロフィール: <%= @user.profile %></p>
+<p>ラベル: <% @user.labels.each do |label| %>
+  <%= label.label_name %>
+<% end %></p>
 <p>お名前: <%= @user.name %></p>
 <p>メールアドレス: <%= @user.email %></p>
 

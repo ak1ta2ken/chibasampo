@@ -15,6 +15,14 @@
     <%= f.text_area :profile, autofocus: true %>
   </div>
 
+  <div class="label_field">
+    <%= f.label :label_ids %><br />
+    <% Label.all.each do |label|%>
+      <%= f.check_box :label_ids, {multiple: true, include_hidden: false}, label[:id] %>
+      <%= f.label :label_ids, label.label_name %>
+    <% end %>
+  </div>
+
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %>

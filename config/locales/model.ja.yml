@@ -4,6 +4,7 @@ ja:
       stroll: 散歩
       user: ユーザー
       favorite: お気に入り
+      label: ラベル
     attributes:
       stroll:
         title: タイトル
@@ -13,9 +14,12 @@ ja:
       user:
         profile: プロフィール
         profile_image: お写真
+        label_ids: ラベル
         name: お名前
         email: メールアドレス
         current_password: 現在のパスワード
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: ログインを記憶
+      label:
+        label_name: ラベル名

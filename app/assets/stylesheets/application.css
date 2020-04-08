@@ -23,3 +23,7 @@
 .message {
   text-align: center;
 }
+
+label {
+  font-weight: normal;
+}

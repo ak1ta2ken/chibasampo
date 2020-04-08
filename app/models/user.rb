@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :labelings, dependent: :destroy
+  has_many :labels, through: :labelings, source: :label
   def update_without_current_password(params)
     params.delete(:current_password)
 

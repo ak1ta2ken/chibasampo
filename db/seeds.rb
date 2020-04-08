@@ -1,7 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Label.create!(label_name: '北西部')
+Label.create!(label_name: '北東部')
+Label.create!(label_name: '南部')
+Label.create!(label_name: '総武線')
+Label.create!(label_name: '常磐線')
+Label.create!(label_name: '東西線')
+Label.create!(label_name: '千葉ロッテマリーンズ')
+Label.create!(label_name: 'ジェフユナイテッド市原・千葉')
+Label.create!(label_name: '柏レイソル')
+Label.create!(label_name: 'なのはな体操')
+Label.create!(label_name: 'ピーナッツサブレー')
+Label.create!(label_name: 'マックスコーヒー')
