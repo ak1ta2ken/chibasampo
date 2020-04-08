@@ -4,6 +4,7 @@
   <% @strolls.each do |stroll| %>
     <tr>
       <td><%= image_tag(stroll.image.url) if stroll.image && stroll.image.url %></td>
+      <td><%= stroll.title %></td>
       <td><%= link_to '確認', stroll_path(stroll.id) %></td>
       <% if user_signed_in? && current_user.id == stroll.user_id %>
         <td><%= link_to '編集', edit_stroll_path(stroll.id) %></td>
