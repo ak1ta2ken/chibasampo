@@ -43,7 +43,7 @@ class StrollsController < ApplicationController
   private
 
   def stroll_params
-    params.require(:stroll).permit(:image, :image_cache, :title, :content)
+    params.require(:stroll).permit(:image, :image_cache, :title, :content, :tag)
   end
   def set_stroll
     @stroll = Stroll.find(params[:id])

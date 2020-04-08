@@ -9,6 +9,7 @@ ja:
         title: タイトル
         content: 内容
         image: 画像
+        tag: タグ
       user:
         profile: プロフィール
         profile_image: お写真

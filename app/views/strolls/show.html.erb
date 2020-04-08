@@ -3,6 +3,7 @@
 <p>投稿者: <%= @stroll.user.name %>さん</p>
 <p>タイトル: <%= @stroll.title %></p>
 <p>内容: <%= @stroll.content %></p>
+<p>タグ: <%= @stroll.tag %></p>
 <% if current_user %>
   <% unless @stroll.user_id == current_user.id %>
     <% if @favorite.present? %>

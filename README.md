@@ -25,8 +25,8 @@
 - [ ] 投稿機能
   - [ ] 画像投稿機能
     - [ ] 画像、タイトル、記事は必須
-  - [ ] ラベル機能
-    - [ ] 投稿にラベルを付けられる
+  - [ ] タグ機能
+    - [ ] 投稿にタグを付けられる
 - [ ] 編集及び削除機能
   - [ ] 投稿者のみ可能
 - [ ] お気に入り機能
@@ -35,7 +35,7 @@
 - [ ] コメント機能
   - [ ] 編集と削除はコメントした本人のみ可能
 - [ ] 検索機能
-  - [ ] ラベルで検索できる
+  - [ ] タグで検索できる
 
 ## カタログ設計
 https://docs.google.com/spreadsheets/d/e/2PACX-1vRMapt6GdP6waWDU6D-nmvOuKQ8jzI6iPZgX6KobyYp3H5MXBsI4HY6F3u5Mear_UBYjRSFURuc-HCA/pubhtml

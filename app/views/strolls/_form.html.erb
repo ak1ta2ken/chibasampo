@@ -26,6 +26,11 @@
     <%= form.text_area :content %>
   </div>
   <br>
+  <div class="stroll_tag">
+    <%= form.label :tag %>
+    <%= form.select :tag, ["観る・遊ぶ・体験する", "グルメ", "特産品・おみやげ", "がんばろう！千葉"], {include_blank: '選択'} %>
+  </div>
+  <br>
   <%= form.submit %>
 <% end %>
 <br>
