@@ -14,20 +14,8 @@
  *= require_tree .
  *= require_self
  */
-.navbar-right {
-  list-style: none; */
-}
-.no-gutters {
-  text-align: center;
-}
-.message {
-  text-align: center;
-}
-
-label {
-  font-weight: normal;
-}
-
-#label_field {
-  width: 730px;
-}
+.navbar-right{list-style: none;}
+.no-gutters{text-align: center;}
+.message{text-align: center;}
+label{font-weight: normal;}
+#label_field{width: 730px;}
