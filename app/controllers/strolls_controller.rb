@@ -17,6 +17,8 @@ class StrollsController < ApplicationController
     end
   end
   def show
+    @comments = @stroll.comments
+    @comment = @stroll.comments.build
     @favorite = current_user.favorites.find_by(stroll_id: @stroll.id) if current_user
   end
   def edit

@@ -5,6 +5,7 @@ ja:
       user: ユーザー
       favorite: お気に入り
       label: ラベル
+      comment: コメント
     attributes:
       stroll:
         title: タイトル
@@ -23,3 +24,5 @@ ja:
         remember_me: ログインを記憶
       label:
         label_name: ラベル名
+      comment:
+        content: コメント

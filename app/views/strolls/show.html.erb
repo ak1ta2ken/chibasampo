@@ -1,9 +1,16 @@
 <h1>散歩詳細画面</h1>
+<p><%= notice %></p>
+<p id="error_explanation"></p>
 <%= image_tag @stroll.image.url %>
 <p>投稿者: <%= @stroll.user.name %>さん</p>
 <p>タイトル: <%= @stroll.title %></p>
 <p>内容: <%= @stroll.content %></p>
 <p>タグ: <%= @stroll.tag %></p>
+<p>コメント: </p>
+<div id="comments_area">
+  <%= render partial: 'comments/index', locals: { comments: @comments, stroll: @stroll } %>
+</div>
+<%= render partial: 'comments/form', locals: { comment: @comment, stroll: @stroll } %>
 <% if current_user %>
   <% unless @stroll.user_id == current_user.id %>
     <% if @favorite.present? %>
