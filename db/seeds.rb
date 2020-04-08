@@ -1,3 +1,22 @@
+require 'faker'
+
+30.times do
+  User.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: 'password',
+  )
+end
+
+30.times do |n|
+  Stroll.create(
+    image: Faker::Avatar.image,
+    title: Faker::ProgrammingLanguage.name,
+    content: Faker::Lorem.paragraphs,
+    user_id: "#{n}"
+  )
+end
+
 Label.create!(label_name: '北西部')
 Label.create!(label_name: '北東部')
 Label.create!(label_name: '南部')
