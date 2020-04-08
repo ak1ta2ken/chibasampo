@@ -27,3 +27,7 @@
 label {
   font-weight: normal;
 }
+
+#label_field {
+  width: 730px;
+}

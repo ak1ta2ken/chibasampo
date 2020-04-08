@@ -9,25 +9,12 @@
     <%= f.file_field :profile_image, autofocus: true %>
     <%= f.hidden_field :profile_image_cache, autofocus: true %>
   </div>
-
-  <div class="field">
-    <%= f.label :profile %><br />
-    <%= f.text_area :profile, autofocus: true %>
-  </div>
-
-  <div class="label_field">
-    <%= f.label :label_ids %><br />
-    <% Label.all.each do |label|%>
-      <%= f.check_box :label_ids, {multiple: true, include_hidden: false}, label[:id] %>
-      <%= f.label :label_ids, label.label_name %>
-    <% end %>
-  </div>
-
+  <br>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
-
+  <br>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -36,16 +23,31 @@
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
   <% end %>
-
+  <br>
   <div class="field">
-    <%= f.label :password %> (<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)<br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <%= t('（6文字以上）', count: @minimum_password_length) %>
-    <% end %>
+    <%= f.label :profile %><br />
+    <%= f.text_area :profile, autofocus: true %>
   </div>
-
+  <br>
+  <div class="field">
+    <div id="label_field">
+    <%= f.label :label_ids %><br />
+    <% Label.all.each do |label|%>
+      <%= f.check_box :label_ids, {multiple: true, include_hidden: false}, label[:id] %>
+      <%= f.label :label_ids, label.label_name %>
+    <% end %>
+    </div>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+      <%= t('* 6文字以上', count: @minimum_password_length) %>
+    <% end %>
+    (<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)<br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+  <br>
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
