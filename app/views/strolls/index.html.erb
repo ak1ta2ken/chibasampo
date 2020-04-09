@@ -1,5 +1,15 @@
 <h1>散歩一覧</h1>
 <p><%= notice %></p>
+<%= search_form_for @q do |f| %>
+  <%= f.label :title %>
+  <%= f.search_field :title_cont %>
+  <%= f.submit "検索" %>
+  &emsp;
+  <%= f.label :tag %>
+  <%= f.select :tag_eq, [["観る・遊ぶ・体験する"], ["グルメ"], ["特産品・おみやげ"], ["暮らし"], ["歴史・文化"], ["がんばろう！千葉"]], {include_blank: '選択'} %>
+  <%= f.submit "検索" %>
+<% end %>
+<p></p>
 <%= link_to '新しく散歩を投稿する', new_stroll_path %>
 <p></p>
 <table>
@@ -11,7 +21,7 @@
         <td><%= image_tag(stroll.image.url) if stroll.image && stroll.image.url %></td>
       <% end %>
       <td>&emsp;<%= stroll.title %></td>
-      <td><%= link_to '確認', stroll_path(stroll.id) %></td>
+      <td>&emsp;<%= link_to '確認', stroll_path(stroll.id) %></td>
       <% if user_signed_in? && current_user.id == stroll.user_id %>
         <td><%= link_to '編集', edit_stroll_path(stroll.id) %></td>
         <td><%= link_to '削除', stroll_path(stroll.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>

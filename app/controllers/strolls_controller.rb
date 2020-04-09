@@ -3,6 +3,12 @@ class StrollsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
     @strolls = Stroll.all.order(id: :desc)
+    @q = Stroll.ransack(params[:q])
+    if params[:q]{:title_cont}.present?
+      @strolls = @q.result(distinct: true).order(id: :desc)
+    elsif params[:q]{:tag_eq}.present?
+      @strolls = @q.result(distinct: true).order(id: :desc)
+    end
   end
   def new
     @stroll = Stroll.new
