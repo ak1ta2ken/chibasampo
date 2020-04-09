@@ -5,9 +5,6 @@
 
   <table>
     <tr>
-      <td>投稿者:<%= stroll.user.name %></td>
-    </tr>
-    <tr>
       <% if stroll[:image] == nil %>
         <td><%= image_tag"03summer_ver8-l.jpg", width:"325", height:"250" %></td>
       <% else %>
@@ -15,10 +12,16 @@
       <% end %>
     </tr>
     <tr>
-      <td>タイトル:<%= stroll.title %></td>
+      <td>投稿者: <%= stroll.user.name %>さん</td>
     </tr>
     <tr>
-      <td>内容:<%= stroll.content %></td>
+      <td>タイトル: <%= stroll.title %></td>
+    </tr>
+    <tr>
+      <td>内容: <%= stroll.content %></td>
+    </tr>
+    <tr>
+      <td>タグ: <%= stroll.tag %></td>
     </tr>
   </table>
 
