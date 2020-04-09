@@ -2,7 +2,7 @@
 <p><%= notice %></p>
 <br>
 <% if @user[:profile_image] == nil %>
-  <%= image_tag"IMG_0191.jpg", width:"20%" %>
+  <%= image_tag"birthday.png", width:"325", height:"250" %>
 <% else %>
   <%= image_tag @user.profile_image.url if @user.profile_image && @user.profile_image.url%>
 <% end %>

@@ -10,7 +10,6 @@ end
 
 30.times do |n|
   Stroll.create(
-    image: Faker::Avatar.image,
     title: Faker::ProgrammingLanguage.name,
     content: Faker::Lorem.paragraphs,
     user_id: "#{n}"

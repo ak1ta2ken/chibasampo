@@ -5,10 +5,14 @@
 
   <table>
     <tr>
-      <td>お名前:<%= stroll.user.name %></td>
+      <td>投稿者:<%= stroll.user.name %></td>
     </tr>
     <tr>
-      <td><%= image_tag stroll.image.url %></td>
+      <% if stroll[:image] == nil %>
+        <td><%= image_tag"03summer_ver8-l.jpg", width:"325", height:"250" %></td>
+      <% else %>
+        <td><%= image_tag stroll.image.url %></td>
+      <% end %>
     </tr>
     <tr>
       <td>タイトル:<%= stroll.title %></td>
