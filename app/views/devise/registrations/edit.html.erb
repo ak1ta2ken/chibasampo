@@ -32,10 +32,7 @@
   <div class="field">
     <div id="label_field">
     <%= f.label :label_ids %><br />
-    <% Label.all.each do |label|%>
-      <%= f.check_box :label_ids, {multiple: true, include_hidden: false}, label[:id] %>
-      <%= f.label :label_ids, label.label_name %>
-    <% end %>
+    <%= f.collection_check_boxes(:label_ids, Label.all, :id, :label_name) %>
     </div>
   </div>
   <br>
