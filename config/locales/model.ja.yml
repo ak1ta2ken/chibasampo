@@ -9,7 +9,7 @@ ja:
     attributes:
       stroll:
         title: タイトル
-        content: 内容
+        content: 記事
         image: 画像
         tag: タグ
       user:

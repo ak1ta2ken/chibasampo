@@ -17,7 +17,7 @@ class StrollsController < ApplicationController
     @stroll = Stroll.create(stroll_params)
     @stroll.user_id = current_user.id
     if @stroll.save
-      redirect_to strolls_path, notice: "散歩を投稿しました！"
+      redirect_to strolls_path, notice: "新しく投稿しました！"
     else
       render :new
     end
@@ -34,7 +34,7 @@ class StrollsController < ApplicationController
   end
   def update
     if @stroll.update(stroll_params)
-      redirect_to strolls_path, notice: "散歩を編集しました！"
+      redirect_to strolls_path, notice: "記事を編集しました！"
     else
       render :edit
     end
@@ -44,7 +44,7 @@ class StrollsController < ApplicationController
       redirect_to strolls_path, notice: "権限がありません。"
     else
       @stroll.destroy
-      redirect_to strolls_path, notice:"散歩を削除しました！"
+      redirect_to strolls_path, notice:"記事を削除しました！"
     end
   end
 

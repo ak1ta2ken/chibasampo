@@ -1,4 +1,4 @@
-<h1><%= @user.name %>さんのページ</h1>
+<h1>マイページ</h1>
 <p><%= notice %></p>
 <br>
 <% if @user[:profile_image] == nil %>
@@ -15,5 +15,5 @@
   <%= label.label_name %>
 <% end %></p>
 
-<%= link_to 'プロフィール編集', edit_user_registration_path(@user) %>
-<%= link_to 'お気に入り一覧', favorites_user_path(@user.id) %>
+<%= link_to 'プロフィールを編集する', edit_user_registration_path(@user) %>
+&emsp;<%= link_to 'いいね！一覧', favorites_user_path(@user.id) %>
