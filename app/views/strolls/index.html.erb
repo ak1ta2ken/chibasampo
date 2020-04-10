@@ -3,7 +3,6 @@
 <%= search_form_for @q do |f| %>
   <%= f.label :title %>
   <%= f.search_field :title_cont %>
-  <%= f.submit "検索" %>
   &emsp;
   <%= f.label :tag %>
   <%= f.select :tag_eq, [["観る・遊ぶ・体験する"], ["グルメ"], ["特産品・おみやげ"], ["暮らし"], ["歴史・文化"], ["がんばろう！千葉"]], {include_blank: '選択'} %>
