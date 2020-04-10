@@ -6,6 +6,7 @@
   &emsp;
   <%= f.label :tag %>
   <%= f.select :tag_eq, [["観る・遊ぶ・体験する"], ["グルメ"], ["特産品・おみやげ"], ["暮らし"], ["歴史・文化"], ["がんばろう！千葉"]], {include_blank: '選択'} %>
+  &emsp;
   <%= f.submit "検索" %>
   &emsp;
   <%= link_to '新しく投稿する', new_stroll_path, class: 'btn btn-danger' %>

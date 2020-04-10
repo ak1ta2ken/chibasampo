@@ -15,7 +15,7 @@
   <%= render partial: 'comments/index', locals: { comments: @comments, stroll: @stroll } %>
 </div>
 <% if user_signed_in? && @stroll.user_id != current_user.id %>
-<%= render partial: 'comments/form', locals: { comment: @comment, stroll: @stroll } %>
+  <%= render partial: 'comments/form', locals: { comment: @comment, stroll: @stroll } %>
 <% end %>
 <% if current_user %>
   <% unless @stroll.user_id == current_user.id %>

@@ -1,9 +1,9 @@
-<%= form_with(model: [stroll, comment]) do |form| %>
+<%= form_with(model: [@stroll, @comment]) do |form| %>
   <div class="field">
     <%= form.text_area :content %>
   </div>
   <div class="actions">
-    <%= form.submit "コメントする" %>
+    <%= form.submit "編集する" %>
   </div>
   <br>
 <% end %>

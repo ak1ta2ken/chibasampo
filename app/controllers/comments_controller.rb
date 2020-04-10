@@ -11,6 +11,22 @@ class CommentsController < ApplicationController
       end
     end
   end
+  def edit
+    @stroll = Stroll.find(params[:stroll_id])
+    @comment = @stroll.comments.find(params[:id])
+  end
+
+  def update
+    @stroll = Stroll.find(params[:stroll_id])
+    @comment = @stroll.comments.find(params[:id])
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.js { render :index }
+      else
+        format.js { render :errors }
+      end
+    end
+  end
   def destroy
     @stroll = Stroll.find(params[:stroll_id])
     @comment = @stroll.comments.find(params[:id])
