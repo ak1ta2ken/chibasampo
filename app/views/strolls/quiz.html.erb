@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>chibasampo</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id="sceneTop" class="top screen">
+      <h1>ちばクイズ</h1>
+      <br>
+      <button id="btnStart">スタート</button>
+    </div>
+
+    <div id="sceneGame" class="game screen">
+      <p id="textQuestion"></p>
+      <ul id="listAnswer"></ul>
+    </div>
+
+    <div id="sceneResult" class="result screen">
+      <h1>結果発表</h1>
+      <p>お疲れさまでした。正解数は<span id="numResult"></span>問です。</p>
+      <br>
+      <button id="btnReset">リセット</button>
+    </div>
+  </body>
+</html>

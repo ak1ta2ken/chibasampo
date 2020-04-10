@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'strolls/ganbarou' => 'strolls#ganbarou'
   get 'strolls/people' => 'strolls#people'
+  get 'strolls/quiz' => 'strolls#quiz'
   resources :strolls do
     resources :comments
   end
