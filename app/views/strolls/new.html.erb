@@ -12,7 +12,6 @@
 <% end %>
   <br>
   <div class="stroll_image">
-    <%= image_tag(@stroll.image.url) if @stroll.image && @stroll.image.url %>
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
   </div>
