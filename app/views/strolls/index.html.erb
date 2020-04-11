@@ -15,7 +15,7 @@
 <p></p>
 <table>
   <% @strolls.each do |stroll| %>
-    <tr>
+    <tr class="stroll_row">
       <% if stroll[:image] == nil %>
         <td><%= image_tag"03summer_ver8-l.jpg", width:"325", height:"250" %></td>
       <% else %>
@@ -24,8 +24,8 @@
       <td>&emsp;『<%= stroll.title %>』</td>
       <td>&emsp;<%= link_to '記事を読む', stroll_path(stroll.id) %></td>
       <% if user_signed_in? && current_user.id == stroll.user_id %>
-        <td>&emsp;<%= link_to '記事を編集する', edit_stroll_path(stroll.id) %></td>
-        <td>&emsp;<%= link_to '記事を削除する', stroll_path(stroll.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+        <td>&emsp;<%= link_to '編集', edit_stroll_path(stroll.id) %></td>
+        <td>&emsp;<%= link_to '削除', stroll_path(stroll.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
       <% end %>
     </tr>
   <% end %>
