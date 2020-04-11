@@ -10,17 +10,19 @@
   </head>
 
   <body>
-    <div>
-    <%= image_tag"04otm-l.jpg", width:"325", height:"250" %>
-    </div>
-
     <div id="sceneTop" class="top screen">
       <h1>ちばクイズ</h1>
       <p>全部で10問あります。</p>
       <br>
-      <button id="btnStart">スタート</button>
+      <br>
+      <%= image_tag"1024px-千葉県地図赤塗り.png", width:"350", height:"425" %>
+      <br>
+      <br>
+      <button id="btnStart">はじめる</button>
     </div>
-
+    <br>
+    <br>
+    <br>
     <div id="sceneGame" class="game screen">
       <p id="textQuestion"></p>
       <ul id="listAnswer"></ul>
@@ -28,9 +30,12 @@
 
     <div id="sceneResult" class="result screen">
       <h1>結果発表</h1>
-      <p>お疲れさまでした。正解数は<span id="numResult"></span>問です。</p>
+      <p>お疲れさまでした。10問中<span id="numResult"></span>問正解です。</p>
       <br>
-      <button id="btnReset">リセット</button>
+      <%= image_tag"chi-ba_big.gif", width:"450", height:"300" %>
+      <br>
+      <br>
+      <button id="btnReset">はじめから</button>
     </div>
   </body>
 </html>
