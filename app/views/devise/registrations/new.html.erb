@@ -38,4 +38,6 @@
   </div>
 <% end %>
 <br>
-<%= render "devise/shared/links" %>
+<% if Rails.env.development? %>
+  <%= render "devise/shared/links" %>
+<% end %>
