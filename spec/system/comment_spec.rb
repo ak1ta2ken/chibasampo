@@ -45,7 +45,7 @@
 #         click_on "ログイン"
 #         click_link "Strolls"
 #         click_link '記事を読む', match: :first
-#         expect(page).to have_no_button 'コメントする'
+#         expect(page).to have_no_content 'コメントする'
 #       end
 #     end
 #     context 'ユーザーがログアウトした場合' do
@@ -53,7 +53,7 @@
 #         click_link 'Logout'
 #         click_link "Strolls"
 #         click_link '記事を読む', match: :first
-#         expect(page).to have_no_button 'コメントする'
+#         expect(page).to have_no_content 'コメントする'
 #       end
 #     end
 #   end
