@@ -38,10 +38,38 @@ RSpec.describe User, type: :system do
         click_link 'プロフィールを編集する'
         fill_in('user_name', with: 'change_user')
         fill_in('user_email', with: 'change@com')
-        fill_in('user_profile', with: 'change')
         click_on '更新'
         expect(page).to have_content 'change_user'
         expect(page).to have_content 'change@com'
+      end
+      it 'プロフィールにラベルが貼れること' do
+        @label= FactoryBot.create(:label)
+        @label_id = @label.id
+        visit root_path
+        click_link 'Login'
+        fill_in('user_email', with: 'user@com')
+        fill_in('user_password', with: 'password')
+        click_on 'ログイン'
+        click_link 'プロフィールを編集する'
+        check "user_label_ids_#{@label_id}"
+        click_on '更新'
+        expect(page).to have_content 'chiba'
+      end
+      it 'プロフィールのラベルがはがせること' do
+        @label= FactoryBot.create(:label)
+        @label_id = @label.id
+        visit root_path
+        click_link 'Login'
+        fill_in('user_email', with: 'user@com')
+        fill_in('user_password', with: 'password')
+        click_on 'ログイン'
+        click_link 'プロフィールを編集する'
+        check "user_label_ids_#{@label_id}"
+        click_on '更新'
+        click_link 'プロフィールを編集する'
+        uncheck "user_label_ids_#{@label_id}"
+        click_on '更新'
+        expect(page).to have_no_content 'chiba'
       end
       it 'アカウントが削除されること' do
         visit root_path
