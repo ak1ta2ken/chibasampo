@@ -32,7 +32,9 @@
   <div class="field">
     <div id="label_field">
     <%= f.label :label_ids %><br />
-    <%= f.collection_check_boxes(:label_ids, Label.all, :id, :label_name) %>
+    <%= f.collection_check_boxes(:label_ids, Label.all, :id, :label_name) do |b| %>
+      <%= b.label { b.check_box + b.text } %>
+    <% end %>
     </div>
   </div>
   <br>
