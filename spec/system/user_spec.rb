@@ -54,6 +54,15 @@ RSpec.describe User, type: :system do
         page.driver.browser.switch_to.alert.accept
         expect(page).to have_content 'アカウントを削除しました。またのご利用をお待ちしております。'
       end
+      it 'ログアウトできること' do
+        visit root_path
+        click_link 'Login'
+        fill_in('user_email', with: 'user@com')
+        fill_in('user_password', with: 'password')
+        click_on 'ログイン'
+        click_link 'Logout'
+        expect(page).to have_content 'ログアウトしました。'
+      end
     end
   end
 end

@@ -83,6 +83,16 @@ RSpec.describe Stroll, type: :system do
         expect(page).to have_no_content 'niho'
       end
     end
+    context "ログインしていないユーザーが新しく投稿するボタンを押した場合" do
+      before do
+        visit root_path
+        click_link 'Strolls'
+      end
+      it "ログイン画面に遷移すること" do
+        click_on '新しく投稿する'
+        expect(page).to have_content 'アカウント登録もしくはログインしてください。'
+      end
+    end
   end
 
   describe '新規投稿画面' do
