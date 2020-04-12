@@ -9,7 +9,15 @@ RSpec.describe Comment, type: :model do
     comment = Comment.new(content: "", user_id: @user.id, stroll_id: @stroll.id)
     expect(comment).not_to be_valid
   end
-  it "コメントが入力されてたらバリデーションが通る" do
+  it "user_idが空ならバリデーションが通らない" do
+    comment = Comment.new(content: "chiba", user_id: "", stroll_id: @stroll.id)
+    expect(comment).not_to be_valid
+  end
+  it "stroll_idが空ならバリデーションが通らない" do
+    comment = Comment.new(content: "chiba", user_id: @user.id, stroll_id: "")
+    expect(comment).not_to be_valid
+  end
+  it "コメントとuser_idとstroll_idが入力されてたらバリデーションが通る" do
     comment = Comment.new(content: "chiba", user_id: @user.id, stroll_id: @stroll.id)
     expect(comment).to be_valid
   end
