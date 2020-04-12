@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Stroll, type: :system do
   before do
     user = FactoryBot.create(:user)
+    second_user = FactoryBot.create(:second_user)
     stroll = FactoryBot.create(:stroll, user: user)
     second_stroll = FactoryBot.create(:second_stroll, user: user)
     third_stroll = FactoryBot.create(:third_stroll, user: user)
@@ -124,6 +125,49 @@ RSpec.describe Stroll, type: :system do
       it '該当の内容が表示されたページに遷移すること' do
         click_link '記事を読む', match: :first
         expect(page).to have_content 'nihosampo'
+      end
+    end
+    context "ログインしているユーザーが記事の投稿者以外の場合" do
+      before do
+        visit root_path
+        click_link 'Login'
+        fill_in('user_email', with: 'second_user@com')
+        fill_in('user_password', with: 'password')
+        click_on 'ログイン'
+        click_link 'Strolls'
+      end
+      it '投稿にいいね！ができること' do
+        click_link '記事を読む', match: :first
+        click_link 'いいね！'
+        expect(page).to have_content 'userさんの記事をいいね！しました'
+      end
+      it '1つの投稿に1回しかいいね！ができないこと' do
+        click_link '記事を読む', match: :first
+        click_link 'いいね！'
+        expect(page).to have_content 'userさんの記事をいいね！しました'
+        click_link '記事を読む', match: :first
+        expect(page).to have_content 'いいね！を取り消す'
+      end
+      it "マイページでいいね！一覧を確認できること" do
+        click_link '記事を読む', match: :first
+        click_link 'いいね！'
+        click_link 'Profile'
+        click_link 'いいね！一覧'
+        expect(page).to have_content 'second_userさんのいいね！一覧'
+      end
+    end
+    context "ログインしているユーザーが記事の投稿者の場合" do
+      before do
+        visit root_path
+        click_link 'Login'
+        fill_in('user_email', with: 'user@com')
+        fill_in('user_password', with: 'password')
+        click_on 'ログイン'
+        click_link 'Strolls'
+      end
+      it "自分の投稿にいいね！ができないこと" do
+        click_link '記事を読む', match: :first
+        expect(page).to have_no_content 'いいね！'
       end
     end
   end
