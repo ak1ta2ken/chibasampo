@@ -43,7 +43,7 @@ RSpec.describe User, type: :system do
         expect(page).to have_content 'change@com'
       end
       it 'プロフィールにラベルが貼れること' do
-        @label= FactoryBot.create(:label)
+        @label = FactoryBot.create(:label)
         @label_id = @label.id
         visit root_path
         click_link 'Login'
@@ -54,6 +54,23 @@ RSpec.describe User, type: :system do
         check "user_label_ids_#{@label_id}"
         click_on '更新'
         expect(page).to have_content 'chiba'
+      end
+      it 'プロフィールに複数のラベルが貼れること' do
+        @label = FactoryBot.create(:label)
+        @label_id = @label.id
+        @second_label = FactoryBot.create(:second_label)
+        @second_label_id = @second_label.id
+        visit root_path
+        click_link 'Login'
+        fill_in('user_email', with: 'user@com')
+        fill_in('user_password', with: 'password')
+        click_on 'ログイン'
+        click_link 'プロフィールを編集する'
+        check "user_label_ids_#{@label_id}"
+        check "user_label_ids_#{@second_label_id}"
+        click_on '更新'
+        expect(page).to have_content 'chiba'
+        expect(page).to have_content 'funa'
       end
       it 'プロフィールのラベルがはがせること' do
         @label= FactoryBot.create(:label)
