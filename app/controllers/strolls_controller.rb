@@ -2,12 +2,12 @@ class StrollsController < ApplicationController
   before_action :set_stroll, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
-    @strolls = Stroll.all.order(id: :desc)
+    @strolls = Stroll.all.order(created_at: :desc)
     @q = Stroll.ransack(params[:q])
     if params[:q]{:title_cont}.present?
-      @strolls = @q.result(distinct: true).order(id: :desc)
+      @strolls = @q.result(distinct: true).order(created_at: :desc)
     elsif params[:q]{:tag_eq}.present?
-      @strolls = @q.result(distinct: true).order(id: :desc)
+      @strolls = @q.result(distinct: true).order(created_at: :desc)
     end
   end
   def new

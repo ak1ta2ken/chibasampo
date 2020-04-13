@@ -6,6 +6,7 @@
 <% else %>
   <%= image_tag(@stroll.image.url) if @stroll.image && @stroll.image.url %>
 <% end %>
+<p>日付 <%= @stroll.user.created_at.strftime("%Y年%-m月%-d日") %></p>
 <p>投稿者 <%= @stroll.user.name %>さん</p>
 <p>『<%= @stroll.title %>』</p>
 <p>記事: <%= @stroll.content %></p>
