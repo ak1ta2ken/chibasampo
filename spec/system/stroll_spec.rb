@@ -117,7 +117,7 @@ RSpec.describe Stroll, type: :system do
   end
 
   describe '投稿詳細画面' do
-    context "任意の投稿詳細画面に遷移した場合" do
+    context "ログインしていないユーザーが任意の投稿詳細画面に遷移した場合" do
       before do
         visit root_path
         click_link 'Strolls'
@@ -125,6 +125,10 @@ RSpec.describe Stroll, type: :system do
       it '該当の内容が表示されたページに遷移すること' do
         click_link '記事を読む', match: :first
         expect(page).to have_content 'nihosampo'
+      end
+      it '投稿にコメントができないこと' do
+        click_link '記事を読む', match: :first
+        expect(page).to have_no_content 'コメントする'
       end
     end
     context "ログインしているユーザーが記事の投稿者以外の場合" do
@@ -168,6 +172,10 @@ RSpec.describe Stroll, type: :system do
       it "自分の投稿にいいね！ができないこと" do
         click_link '記事を読む', match: :first
         expect(page).to have_no_content 'いいね！'
+      end
+      it '自分の投稿にコメントができないこと' do
+        click_link '記事を読む', match: :first
+        expect(page).to have_no_content 'コメントする'
       end
     end
   end
