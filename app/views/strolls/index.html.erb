@@ -21,12 +21,9 @@
       <% else %>
         <td><%= image_tag(stroll.image.url) if stroll.image && stroll.image.url %></td>
       <% end %>
+      <td>投稿者 <%= stroll.user.name %>さん</td>
       <td>&emsp;『<%= stroll.title %>』</td>
       <td>&emsp;<%= link_to '記事を読む', stroll_path(stroll.id) %></td>
-      <% if user_signed_in? && current_user.id == stroll.user_id %>
-        <td>&emsp;<%= link_to '編集', edit_stroll_path(stroll.id) %></td>
-        <td>&emsp;<%= link_to '削除', stroll_path(stroll.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
-      <% end %>
     </tr>
   <% end %>
 </table>

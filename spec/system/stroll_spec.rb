@@ -33,7 +33,7 @@ RSpec.describe Stroll, type: :system do
         expect(stroll_list[2]).to have_content 'chiba'
       end
     end
-    context '一覧画面でタイトルとタグで絞り込み検索した場合' do
+    context 'タイトルとタグで絞り込み検索した場合' do
       before do
         visit root_path
         click_link 'Strolls'
@@ -59,29 +59,6 @@ RSpec.describe Stroll, type: :system do
         expect(page).to have_no_content 'chiba'
         expect(page).to have_no_content 'funa'
         expect(page).to have_content 'niho'
-      end
-    end
-    context "ログインしているユーザーが記事の投稿者の場合" do
-      before do
-        visit root_path
-        click_link 'Login'
-        fill_in('user_email', with: 'user@com')
-        fill_in('user_password', with: 'password')
-        click_on 'ログイン'
-        click_link 'Strolls'
-      end
-      it '投稿した記事の編集ができること' do
-        click_link ('編集'), match: :first
-        fill_in('stroll_title', with: 'change')
-        click_on '編集する'
-        expect(page).to have_content '記事を編集しました！'
-        expect(page).to have_content 'change'
-      end
-      it '投稿した記事の削除ができること' do
-        click_link ('削除'), match: :first
-        page.driver.browser.switch_to.alert.accept
-        expect(page).to have_content '記事を削除しました！'
-        expect(page).to have_no_content 'niho'
       end
     end
     context "ログインしていないユーザーが新しく投稿するボタンを押した場合" do
@@ -117,7 +94,7 @@ RSpec.describe Stroll, type: :system do
   end
 
   describe '投稿詳細画面' do
-    context "ログインしていないユーザーが任意の投稿詳細画面に遷移した場合" do
+    context "ユーザーが投稿一覧画面で記事を読むボタンを押した場合" do
       before do
         visit root_path
         click_link 'Strolls'
@@ -125,10 +102,6 @@ RSpec.describe Stroll, type: :system do
       it '該当の内容が表示されたページに遷移すること' do
         click_link '記事を読む', match: :first
         expect(page).to have_content 'nihosampo'
-      end
-      it '投稿にコメントができないこと' do
-        click_link '記事を読む', match: :first
-        expect(page).to have_no_content 'コメントする'
       end
     end
     context "ログインしているユーザーが記事の投稿者以外の場合" do
@@ -152,13 +125,6 @@ RSpec.describe Stroll, type: :system do
         click_link '記事を読む', match: :first
         expect(page).to have_content 'いいね！を取り消す'
       end
-      it "マイページでいいね！一覧を確認できること" do
-        click_link '記事を読む', match: :first
-        click_link 'いいね！'
-        click_link 'Profile'
-        click_link 'いいね！一覧'
-        expect(page).to have_content 'second_userさんのいいね！一覧'
-      end
     end
     context "ログインしているユーザーが記事の投稿者の場合" do
       before do
@@ -169,13 +135,24 @@ RSpec.describe Stroll, type: :system do
         click_on 'ログイン'
         click_link 'Strolls'
       end
+      it '投稿した記事の編集ができること' do
+        click_link '記事を読む', match: :first
+        click_link ('編集')
+        fill_in('stroll_title', with: 'change')
+        click_on '編集する'
+        expect(page).to have_content '記事を編集しました！'
+        expect(page).to have_content 'change'
+      end
+      it '投稿した記事の削除ができること' do
+        click_link '記事を読む', match: :first
+        click_link ('削除')
+        page.driver.browser.switch_to.alert.accept
+        expect(page).to have_content '記事を削除しました！'
+        expect(page).to have_no_content 'niho'
+      end
       it "自分の投稿にいいね！ができないこと" do
         click_link '記事を読む', match: :first
         expect(page).to have_no_content 'いいね！'
-      end
-      it '自分の投稿にコメントができないこと' do
-        click_link '記事を読む', match: :first
-        expect(page).to have_no_content 'コメントする'
       end
     end
   end

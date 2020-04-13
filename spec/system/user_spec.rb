@@ -29,12 +29,29 @@ RSpec.describe User, type: :system do
         click_on 'ログイン'
         expect(page).to have_content 'ログインしました。'
       end
-      it 'プロフィールが編集できること' do
+    end
+    context 'ログインしているユーザーがLogoutリンクを押した場合' do
+      it 'ログアウトできること' do
         visit root_path
         click_link 'Login'
         fill_in('user_email', with: 'user@com')
         fill_in('user_password', with: 'password')
         click_on 'ログイン'
+        click_link 'Logout'
+      end
+    end
+  end
+
+  describe 'ユーザー詳細画面' do
+    context 'ユーザーがマイページに遷移した場合' do
+      before do
+        visit root_path
+        click_link 'Login'
+        fill_in('user_email', with: 'user@com')
+        fill_in('user_password', with: 'password')
+        click_on 'ログイン'
+      end
+      it 'プロフィールが編集できること' do
         click_link 'プロフィールを編集する'
         fill_in('user_name', with: 'change_user')
         fill_in('user_email', with: 'change@com')
@@ -45,11 +62,6 @@ RSpec.describe User, type: :system do
       it 'プロフィールにラベルが貼れること' do
         @label = FactoryBot.create(:label)
         @label_id = @label.id
-        visit root_path
-        click_link 'Login'
-        fill_in('user_email', with: 'user@com')
-        fill_in('user_password', with: 'password')
-        click_on 'ログイン'
         click_link 'プロフィールを編集する'
         check "user_label_ids_#{@label_id}"
         click_on '更新'
@@ -60,11 +72,6 @@ RSpec.describe User, type: :system do
         @label_id = @label.id
         @second_label = FactoryBot.create(:second_label)
         @second_label_id = @second_label.id
-        visit root_path
-        click_link 'Login'
-        fill_in('user_email', with: 'user@com')
-        fill_in('user_password', with: 'password')
-        click_on 'ログイン'
         click_link 'プロフィールを編集する'
         check "user_label_ids_#{@label_id}"
         check "user_label_ids_#{@second_label_id}"
@@ -75,11 +82,6 @@ RSpec.describe User, type: :system do
       it 'プロフィールのラベルがはがせること' do
         @label= FactoryBot.create(:label)
         @label_id = @label.id
-        visit root_path
-        click_link 'Login'
-        fill_in('user_email', with: 'user@com')
-        fill_in('user_password', with: 'password')
-        click_on 'ログイン'
         click_link 'プロフィールを編集する'
         check "user_label_ids_#{@label_id}"
         click_on '更新'
@@ -89,24 +91,20 @@ RSpec.describe User, type: :system do
         expect(page).to have_no_content 'chiba'
       end
       it 'アカウントが削除されること' do
-        visit root_path
-        click_link 'Login'
-        fill_in('user_email', with: 'user@com')
-        fill_in('user_password', with: 'password')
-        click_on 'ログイン'
         click_link 'プロフィールを編集する'
         click_on 'アカウント削除'
         page.driver.browser.switch_to.alert.accept
         expect(page).to have_content 'アカウントを削除しました。またのご利用をお待ちしております。'
       end
-      it 'ログアウトできること' do
-        visit root_path
-        click_link 'Login'
-        fill_in('user_email', with: 'user@com')
-        fill_in('user_password', with: 'password')
-        click_on 'ログイン'
-        click_link 'Logout'
-        expect(page).to have_content 'ログアウトしました。'
+      it 'いいね！一覧を確認できること' do
+        second_user = FactoryBot.create(:second_user)
+        stroll = FactoryBot.create(:stroll, user: second_user)
+        click_link 'Strolls'
+        click_link '記事を読む', match: :first
+        click_link 'いいね！'
+        click_link 'Profile'
+        click_link 'いいね！一覧'
+        expect(page).to have_content 'userさんのいいね！一覧'
       end
     end
   end

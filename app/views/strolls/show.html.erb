@@ -10,6 +10,15 @@
 <p>『<%= @stroll.title %>』</p>
 <p>記事: <%= @stroll.content %></p>
 <p>タグ: <%= @stroll.tag %></p>
+<table>
+  <tr>
+    <% if user_signed_in? && current_user.id == @stroll.user_id %>
+      <td>&ensp;<%= link_to '編集', edit_stroll_path(@stroll.id) %></td>
+      <td>&ensp;<%= link_to '削除', stroll_path(@stroll.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+    <% end %>
+  </tr>
+</table>
+<br>
 <p>コメント: </p>
 <div id="comments_area">
   <%= render partial: 'comments/index', locals: { comments: @comments, stroll: @stroll } %>
@@ -26,5 +35,5 @@
     <% end %>
   <% end %>
 <% end %>
-&emsp;
+&ensp;
 <%= link_to "一覧へ戻る", strolls_path %>
