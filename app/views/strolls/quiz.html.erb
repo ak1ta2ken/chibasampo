@@ -4,38 +4,89 @@
     <title>chibasampo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div id="sceneTop" class="top screen">
-      <h1>ちばクイズ</h1>
-      <p>10問あります。全問正解をめざしましょう。</p>
-      <br>
-      <br>
-      <%= image_tag"1024px-千葉県地図赤塗り.png", width:"350", height:"425" %>
-      <br>
-      <br>
-      <button id="btnStart">はじめる</button>
-    </div>
+    <h1>ちばクイズ</h1>
+    <p>何問正解できるかな</p>
     <br>
     <br>
+    <div id="text_q"></div>
     <br>
-    <div id="sceneGame" class="game screen">
-      <p id="textQuestion"></p>
-      <ul id="listAnswer"></ul>
-    </div>
+    <br>
+    <div id="text_s"></div>
+    <br>
+    <br>
+    <div id="text_a"></div>
 
-    <div id="sceneResult" class="result screen">
-      <h1>結果発表</h1>
-      <p>お疲れさまでした。10問中<span id="numResult"></span>問正解です。</p>
-      <br>
-      <%= image_tag"chi-ba_big.gif", width:"450", height:"300" %>
-      <br>
-      <br>
-      <button id="btnReset">はじめから</button>
-    </div>
+<script type="text/javascript">
+
+qa = new Array();
+qa[0] = ["成田空港に乗り入れる路線は成田線と？","京成線","京葉線","総武線","常磐線","東武野田線",1];
+qa[1] = ["千葉市の次に人口の多い市は？","松戸市","市川市","柏市","浦安市","船橋市",5];
+qa[2] = ["県民の日は？","3月15日","4月15日","5月15日","6月15日","7月15日",4];
+qa[3] = ["千葉出身の嵐のメンバーは？","相葉雅紀", '大野智', '櫻井翔', "二宮和也", "松本潤",1];
+qa[4] = ["風が吹けば？","桶屋が儲かる", "京葉線が止まる", "最近は徐行運転が多い", '歌が流れる', '狩人',3];
+qa[5] = ["チーバくんは何の仲間？","犬", "不思議ないきもの", "うさぎ", "きつね", "たぬき",2];
+qa[6] = ["富津市にある観光スポットは？","アンデルセン公園", "東京ドイツ村", "海ほたる", "マザー牧場","養老渓谷",4];
+qa[7] = ["千葉ポートタワーは何メートル？","333メートル", "167メートル", "125メートル", "408メートル", "330メートル",3];
+qa[8] = ["千葉駅前交番は何のデザイン？","あひる", "すずめ", 'ひよこ', 'かもめ', "ふくろう",5];
+qa[9] = ["ふなっしーの本名は？","フナディウス４世", "船田梨男", "北見健二", 'ふなっしー', 'グラディウス',1];
+
+q_sel = 5;
+setReady();
+
+function setReady() {
+  count = 0;
+	ansers = new Array();
+	quiz();
+}
+
+function quiz() {
+  var s, n;
+	document.getElementById("text_q").innerHTML = "第" + (count + 1) + "問　" + qa[count][0];
+	s = "";
+	for (n=1;n<=q_sel;n++) {
+		s += "<a href='javascript:anser(" + n + ")'>" + n + ". " + qa[count][n] + "</a>　";
+	}
+	document.getElementById("text_s").innerHTML = s;
+}
+
+function anser(num) {
+	var s;
+	s = "第" + (count + 1) + "問　";
+	if (num == qa[count][q_sel + 1]) {
+    ansers[count] = "⭕️ ";
+	} else {
+    ansers[count] = "❌ ";
+	}
+  s += ansers[count] + qa[count][num];
+	document.getElementById("text_a").innerHTML = s;
+
+	count++;
+  if (count < qa.length) {
+	   quiz();
+   } else {
+    s = "<table border='1'><caption>お疲れさまでした</caption>";
+		s += "<tr><th>Question</th>";
+		for (n=0;n<qa.length;n++) {
+			s += "<th>" + (n+1) + "</th>";
+		}
+		s += "</tr>";
+		s += "<tr><th>Answer</th>";
+		for (n=0;n<qa.length;n++) {
+			s += "<td>" + ansers[n] + "</td>";
+		}
+		s += "</tr>";
+		s += "</table>";
+ 		document.getElementById("text_q").innerHTML = s;
+		s = "<a href='javascript:history.back()'></a>";
+		s += "<a href='javascript:setReady()'>はじめから</a>";
+		s += "<a href=''></a>";
+ 		document.getElementById("text_s").innerHTML = s;
+ 	}
+}
+
+</script>
   </body>
 </html>
