@@ -6,15 +6,15 @@ RSpec.describe Labeling, type: :model do
     @label = FactoryBot.create(:label)
   end
   it "user_idが空ならバリデーションが通らない" do
-    labeling = Labeling.new(user_id: "", label_id: @label.id)
+    labeling = Labeling.create(user_id: "", label_id: @label.id)
     expect(labeling).not_to be_valid
   end
   it "label_idが空ならバリデーションが通らない" do
-    labeling = Labeling.new(user_id: @user.id, label_id: "")
+    labeling = Labeling.create(user_id: @user.id, label_id: "")
     expect(labeling).not_to be_valid
   end
   it "user_idとlabel_idが入力されてたらバリデーションが通る" do
-    labeling = Labeling.new(user_id: @user.id, label_id: @label.id)
+    labeling = Labeling.create(user_id: @user.id, label_id: @label.id)
     expect(labeling).to be_valid
   end
 end

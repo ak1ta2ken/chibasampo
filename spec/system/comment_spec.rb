@@ -52,6 +52,7 @@ RSpec.describe Comment, type: :system do
         click_on '編集する'
       end
       it '自分のコメントが編集できること' do
+        expect(page).to have_no_content 'one'
         expect(page).to have_content 'two'
       end
     end

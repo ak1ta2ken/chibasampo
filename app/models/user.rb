@@ -19,6 +19,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :name, length: { maximum: 15 }
   validates :name, uniqueness: true
+  validates :email, presence: true
   validates :profile, length: { maximum: 140 }
   mount_uploader :profile_image, ImageUploader
   # Include default devise modules. Others available are:
