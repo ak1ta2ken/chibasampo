@@ -33,13 +33,13 @@ RSpec.describe Stroll, type: :system do
         expect(stroll_list[2]).to have_content 'chiba'
       end
     end
-    context 'タイトルとタグで絞り込み検索した場合' do
+    context 'キーワードとタグで絞り込み検索した場合' do
       before do
         visit root_path
         click_link 'Strolls'
       end
-      it 'タイトルにのみ値が入っていた場合はタイトルのみで検索' do
-        fill_in('q_title_cont', with: 'chiba')
+      it 'キーワードにのみ値が入っていた場合はキーワードのみで検索' do
+        fill_in('q_title_or_content_or_user_name_or_user_profile_cont_any', with: 'chiba')
         click_on '検索'
         expect(page).to have_no_content 'funa'
         expect(page).to have_no_content 'niho'
@@ -53,7 +53,7 @@ RSpec.describe Stroll, type: :system do
         expect(page).to have_content 'niho'
       end
       it '全て値が入っていた場合は全て成り立つものを検索' do
-        fill_in('q_title_cont', with: 'niho')
+        fill_in('q_title_or_content_or_user_name_or_user_profile_cont_any', with: 'niho')
         select 'グルメ', from: 'q_tag_eq'
         click_on '検索'
         expect(page).to have_no_content 'chiba'

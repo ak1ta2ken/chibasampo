@@ -2,8 +2,8 @@
 <p>〜あなたが知ってる千葉をみんなで共有しよう〜</p>
 <p><%= notice %></p>
 <%= search_form_for @q do |f| %>
-  <%= f.label :title_or_content_or_user_name_or_user_email_or_user_profile, "キーワード" %>&ensp;
-  <%= f.search_field :title_or_content_or_user_name_or_user_email_or_user_profile_cont_any %>
+  <%= f.label :title_or_content_or_users, "キーワード" %>&ensp;
+  <%= f.search_field :title_or_content_or_user_name_or_user_profile_cont_any %>
   &emsp;
   <%= f.label :tag %>&ensp;
   <%= f.select :tag_eq, [["観る・遊ぶ・体験する"], ["グルメ"], ["特産品・おみやげ"], ["暮らし"], ["歴史・文化"], ["がんばろう！千葉"]], {include_blank: '選択'} %>
