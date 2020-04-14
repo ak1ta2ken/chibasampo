@@ -36,9 +36,9 @@
 <% if user_signed_in? && @stroll.user_id != current_user.id %>
   <%= render partial: 'comments/form', locals: { comment: @comment, stroll: @stroll } %>
 <% end %>
-
 <br>
 <br>
+<h2>投稿者プロフィール</h2>
 <% if @stroll.user[:profile_image] == nil %>
   <%= image_tag"birthday.png", width:"325", height:"250" %>
 <% else %>

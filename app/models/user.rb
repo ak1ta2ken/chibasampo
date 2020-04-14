@@ -2,6 +2,11 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :labelings, dependent: :destroy
   has_many :labels, through: :labelings, source: :label
+  def self.guest
+    find_or_create_by!(email: 'guest@com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
   def update_without_current_password(params)
     params.delete(:current_password)
 

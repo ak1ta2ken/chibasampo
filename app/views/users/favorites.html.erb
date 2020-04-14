@@ -2,7 +2,6 @@
 
 <% @favorites.each do |favorite| %>
   <% stroll = Stroll.find(favorite.stroll_id) %>
-
   <table>
     <tr>
       <% if stroll[:image] == nil %>
@@ -12,19 +11,15 @@
       <% end %>
     </tr>
     <tr>
+      <td>投稿日 <%= stroll.created_at.strftime("%Y年%-m月%-d日") %></td>
+    </tr>
+    <tr>
       <td>投稿者 <%= stroll.user.name %>さん</td>
     </tr>
     <tr>
-      <td>『<%= stroll.title %>』</td>
-    </tr>
-    <tr>
-      <td>記事: <%= stroll.content %></td>
-    </tr>
-    <tr>
-      <td>タグ: <%= stroll.tag %></td>
+      <td>『<%= link_to stroll.title, stroll_path(stroll.id) %>』</td>
     </tr>
   </table>
-
 <% end %>
-
+<br>
 <%= link_to "マイページに戻る", users_show_path %>

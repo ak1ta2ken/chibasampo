@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/users/guest_sign_in', to: 'users#new_guest'
   get 'strolls/ganbarou' => 'strolls#ganbarou'
   get 'strolls/people' => 'strolls#people'
   get 'strolls/quiz' => 'strolls#quiz'

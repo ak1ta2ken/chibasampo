@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  before_action :check_guest, only: :destroy
 
   # GET /resource/sign_up
   # def new
@@ -40,9 +41,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def check_guest
+    if resource.name == 'guest' || resource.email == 'guest@com'
+      redirect_to users_show_path, notice: 'ゲストユーザーは削除できません。'
+    end
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
