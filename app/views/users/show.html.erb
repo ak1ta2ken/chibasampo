@@ -14,6 +14,26 @@
 <p>ラベル: <% @user.labels.each do |label| %>
   <%= label.label_name %>
 <% end %></p>
-
+<br>
 <%= link_to 'プロフィールを編集する', edit_user_registration_path(@user) %>
 &emsp;<%= link_to 'いいね！一覧', favorites_user_path(@user.id) %>
+<br>
+<br>
+<% unless @strolls == nil %>
+<div>
+  <h2>投稿一覧</h2>
+    <table>
+      <% @strolls.each do |stroll| %>
+        <tr>
+          <% if stroll[:image] == nil %>
+            <td><%= image_tag"03summer_ver8-l.jpg", width:"325", height:"250" %></td>
+          <% else %>
+            <td><%= image_tag(stroll.image.url) if stroll.image && stroll.image.url %></td>
+          <% end %>
+          <td>&emsp;『<%= link_to stroll.title, stroll_path(stroll.id) %>』</td>
+          <td>投稿日 <%= stroll.user.created_at.strftime("%Y年%-m月%-d日") %></td>
+        </tr>
+      <% end %>
+    </table>
+</div>
+<% end %>

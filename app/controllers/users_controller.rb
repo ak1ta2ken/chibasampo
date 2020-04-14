@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = current_user
+    @strolls = @user.strolls
   end
   def favorites
     @user = current_user

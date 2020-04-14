@@ -21,7 +21,7 @@
       <% else %>
         <td><%= image_tag(stroll.image.url) if stroll.image && stroll.image.url %></td>
       <% end %>
-      <td>投稿者 <%= stroll.user.name %>さん</td>
+      <td>&emsp;投稿者 <%= stroll.user.name %>さん</td>
       <td>&emsp;『<%= stroll.title %>』</td>
       <td>&emsp;<%= link_to '記事を読む', stroll_path(stroll.id) %></td>
     </tr>
