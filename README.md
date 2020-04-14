@@ -35,7 +35,7 @@
 - [ ] コメント機能
   - [ ] 編集と削除はコメントした本人のみ可能
 - [ ] 検索機能
-  - [ ] タイトルで検索できる
+  - [ ] キーワードで検索できる
   - [ ] タグで検索できる
 
 ## カタログ設計
@@ -58,5 +58,6 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vSeudi-5m7XKdCs1sPI1ICZdrDTJClxU
 - devise-i18n
 - carrierwave
 - minimagick
+- faker
 - ransack
 - fog-aws
