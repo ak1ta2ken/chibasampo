@@ -4,7 +4,7 @@ class StrollsController < ApplicationController
   def index
     @strolls = Stroll.all.order(created_at: :desc)
     @q = Stroll.ransack(params[:q])
-    if params[:q]{:title_cont}.present?
+    if params[:q]{:title_or_content_users_cont_any}.present?
       @strolls = @q.result(distinct: true).order(created_at: :desc)
     elsif params[:q]{:tag_eq}.present?
       @strolls = @q.result(distinct: true).order(created_at: :desc)
