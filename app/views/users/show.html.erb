@@ -8,7 +8,7 @@
 <% end %>
 <p></p>
 <br>
-<p>お名前: <%= @user.name %></p>
+<p>お名前: <%= @user.name %>さん</p>
 <p>メールアドレス: <%= @user.email %></p>
 <p>プロフィール: <%= @user.profile %></p>
 <p>ラベル: <% @user.labels.each do |label| %>
@@ -16,7 +16,9 @@
 <% end %></p>
 <br>
 <%= link_to 'プロフィールを編集する', edit_user_registration_path(@user) %>
-&emsp;<%= link_to 'いいね！一覧', favorites_user_path(@user.id) %>
+<% if @user.favorites.present? %>
+  &emsp;<%= link_to 'いいね！一覧', favorites_user_path(@user.id) %>
+<% end %>
 <br>
 <br>
 <% unless @strolls == nil %>

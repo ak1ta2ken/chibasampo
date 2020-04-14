@@ -10,31 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_121040) do
+ActiveRecord::Schema.define(version: 2020_04_14_040512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.bigint "stroll_id"
-    t.text "content"
+    t.bigint "stroll_id", null: false
+    t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.index ["stroll_id"], name: "index_comments_on_stroll_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "stroll_id"
+    t.integer "user_id", null: false
+    t.integer "stroll_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "labelings", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "label_id"
+    t.bigint "user_id", null: false
+    t.bigint "label_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["label_id"], name: "index_labelings_on_label_id"
@@ -42,16 +42,16 @@ ActiveRecord::Schema.define(version: 2020_04_13_121040) do
   end
 
   create_table "labels", force: :cascade do |t|
-    t.string "label_name"
+    t.string "label_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "strolls", force: :cascade do |t|
-    t.text "title"
-    t.text "content"
+    t.text "title", null: false
+    t.text "content", null: false
     t.text "image"
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.text "tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -73,9 +73,10 @@ ActiveRecord::Schema.define(version: 2020_04_13_121040) do
     t.datetime "updated_at", null: false
     t.text "profile"
     t.text "profile_image"
-    t.string "name"
-    t.boolean "admin", default: false
+    t.string "name", null: false
+    t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
