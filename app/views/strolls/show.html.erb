@@ -19,14 +19,6 @@
     <% end %>
   </tr>
 </table>
-<br>
-<p>コメント: </p>
-<div id="comments_area">
-  <%= render partial: 'comments/index', locals: { comments: @comments, stroll: @stroll } %>
-</div>
-<% if user_signed_in? && @stroll.user_id != current_user.id %>
-  <%= render partial: 'comments/form', locals: { comment: @comment, stroll: @stroll } %>
-<% end %>
 <% if current_user %>
   <% unless @stroll.user_id == current_user.id %>
     <% if @favorite.present? %>
@@ -36,5 +28,28 @@
     <% end %>
   <% end %>
 <% end %>
-&ensp;
+<p></p>
+<p>コメント: </p>
+<div id="comments_area">
+  <%= render partial: 'comments/index', locals: { comments: @comments, stroll: @stroll } %>
+</div>
+<% if user_signed_in? && @stroll.user_id != current_user.id %>
+  <%= render partial: 'comments/form', locals: { comment: @comment, stroll: @stroll } %>
+<% end %>
+
+<br>
+<br>
+<% if @stroll.user[:profile_image] == nil %>
+  <%= image_tag"birthday.png", width:"325", height:"250" %>
+<% else %>
+  <%= image_tag @user.profile_image.url if @user.profile_image && @user.profile_image.url%>
+<% end %>
+<p></p>
+<br>
+<p>お名前: <%= @stroll.user.name %></p>
+<p>メールアドレス: <%= @stroll.user.email %></p>
+<p>プロフィール: <%= @stroll.user.profile %></p>
+<p>ラベル: <% @stroll.user.labels.each do |label| %>
+  <%= label.label_name %>
+<% end %></p>
 <%= link_to "一覧へ戻る", strolls_path %>

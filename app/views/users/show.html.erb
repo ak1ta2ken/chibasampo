@@ -21,7 +21,9 @@
 <br>
 <% unless @strolls == nil %>
 <div>
-  <h2>投稿一覧</h2>
+  <% if @strolls.present? %>
+    <h2>投稿一覧</h2>
+  <% end %>
     <table>
       <% @strolls.each do |stroll| %>
         <tr>
