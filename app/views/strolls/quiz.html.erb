@@ -39,6 +39,7 @@ qa[8] = ["千葉駅前交番は何のデザイン？","あひる", "すずめ", 
 qa[9] = ["ふなっしーの本名は？","フナディウス４世", "船田梨男", "北見健二", 'ふなっしー', 'グラディウス',1];
 
 q_sel = 5;
+q_max = 10;
 setReady();
 
 function setReady() {
@@ -49,10 +50,11 @@ function setReady() {
 
 function quiz() {
   var s, n;
-	document.getElementById("text_q").innerHTML = "第" + (count + 1) + "問　" + qa[count][0];
+  rnd = Math.floor(Math.random() * qa.length);
+	document.getElementById("text_q").innerHTML = "第" + (count + 1) + "問　" + qa[rnd][0];
 	s = "";
 	for (n=1;n<=q_sel;n++) {
-		s += "<a href='javascript:anser(" + n + ")'>" + n + ". " + qa[count][n] + "</a>　";
+		s += "<a href='javascript:anser(" + n + ")'>" + qa[rnd][n] + "</a>　";
 	}
 	document.getElementById("text_s").innerHTML = s;
 }
@@ -60,16 +62,16 @@ function quiz() {
 function anser(num) {
 	var s;
 	s = "第" + (count + 1) + "問　";
-	if (num == qa[count][q_sel + 1]) {
+	if (num == qa[rnd][q_sel + 1]) {
     ansers[count] = "⭕️ ";
 	} else {
     ansers[count] = "❌ ";
 	}
-  s += ansers[count] + qa[count][num];
-	document.getElementById("text_a").innerHTML = s;
+  s += ansers[count] + qa[rnd][num];
+	// document.getElementById("text_a").innerHTML = s;
 
 	count++;
-  if (count < qa.length) {
+  if (count < q_max) {
 	   quiz();
    } else {
     s = "<table border='1' align='center'><caption><p align='center'>お疲れさまでした。</p></caption>";
