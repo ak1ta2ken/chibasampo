@@ -7,20 +7,22 @@
   </head>
 
   <body>
-    <h1>ちばクイズ</h1>
-    <p>何問正解できるかな</p>
-    <br>
-    <%= image_tag"chi-ba_big.gif", width:"360", height:"261" %>
-    <br>
-    <br>
-    <br>
-    <div id="text_q"></div>
-    <br>
-    <br>
-    <div id="text_s"></div>
-    <br>
-    <br>
-    <div id="text_a"></div>
+    <div class="text-center">
+      <h1>ちばクイズ</h1>
+      <p>何問正解できるかな</p>
+      <br>
+      <%= image_tag"chi-ba_big.gif", width:"360", height:"261" %>
+      <br>
+      <br>
+      <br>
+      <div id="text_q"></div>
+      <br>
+      <br>
+      <div id="text_s"></div>
+      <br>
+      <br>
+      <div id="text_a"></div>
+    </div>
 
 <script type="text/javascript">
 
@@ -70,7 +72,7 @@ function anser(num) {
   if (count < qa.length) {
 	   quiz();
    } else {
-    s = "<table border='1'><caption>お疲れさまでした</caption>";
+    s = "<table border='1'><caption>お疲れさまでした。</caption>";
 		s += "<tr><th>Question</th>";
 		for (n=0;n<qa.length;n++) {
 			s += "<th>" + (n+1) + "</th>";

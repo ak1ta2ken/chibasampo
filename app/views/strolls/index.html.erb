@@ -1,6 +1,10 @@
-<h1>あなたの「ちばさんぽ」教えて！</h1>
-<p>〜あなたが知ってる千葉をみんなで共有しよう〜</p>
-<p><%= notice %></p>
+<div class="message">
+  <h1>あなたの「ちばさんぽ」教えて！</h1>
+  <p>〜あなたが知ってる千葉をみんなで共有しよう〜</p>
+  <p><%= notice %></p>
+</div>
+<br>
+<div class="no-gutters">
 <%= search_form_for @q do |f| %>
   <%= f.label :title_or_content_or_users, "キーワード" %>&ensp;
   <%= f.search_field :title_or_content_or_user_name_or_user_profile_cont_any %>
@@ -12,18 +16,23 @@
   &emsp;
   <%= link_to '新しく投稿する', new_stroll_path, class: 'btn btn-danger' %>
 <% end %>
-<p></p>
-<table>
+</div>
+<br>
+<div class="container">
   <% @strolls.each do |stroll| %>
-    <tr class="stroll_row">
-      <% if stroll[:image] == nil %>
-        <td><%= image_tag"03summer_ver8-l.jpg", width:"325", height:"250" %></td>
-      <% else %>
-        <td><%= image_tag(stroll.image.url) if stroll.image && stroll.image.url %></td>
-      <% end %>
-      <td>&emsp;投稿者 <%= stroll.user.name %>さん</td>
-      <td>&emsp;『<%= stroll.title %>』</td>
-      <td>&emsp;<%= link_to '記事を読む', stroll_path(stroll.id) %></td>
-    </tr>
+    <div class="col-md-4">
+      <div class="thumbnail stroll_row" style="height:390px">
+        <% if stroll[:image] == nil %>
+          <%= image_tag"03summer_ver8-l.jpg", width:"325", height:"250" %>
+        <% else %>
+          <%= image_tag(stroll.image.url) if stroll.image && stroll.image.url %>
+        <% end %>
+        <div class="caption text-center">
+        <h4>&emsp;『<%= stroll.title %>』</h4>
+        <p>&emsp;投稿日 <%= stroll.user.created_at.strftime("%Y年%-m月%-d日") %></p>
+        <p>&emsp;<button class="btn btn-default btn-sm"><%= link_to '記事を読む', stroll_path(stroll.id) %></button></p>
+        </div>
+      </div>
+    </div>
   <% end %>
-</table>
+</div>

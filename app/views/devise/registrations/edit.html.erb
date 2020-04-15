@@ -1,64 +1,82 @@
-<h2><%= t('プロフィールを編集する', resource: resource.model_name.human) %></h2>
+<div class="container">
+  <div class="col-md-6">
+    <div class="thumbnail" style="height:1100px">
+      <h2><%= t('プロフィールを編集する', resource: resource.model_name.human) %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :profile_image %><br />
-    <%= image_tag(@user.profile_image.url) if @user.profile_image && @user.profile_image.url %>
-    <%= f.file_field :profile_image, autofocus: true %>
-    <%= f.hidden_field :profile_image_cache, autofocus: true %>
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+        <div class="field">
+          <br>
+          <%= f.label :profile_image %><br />
+          <br>
+          <%= image_tag(@user.profile_image.url) if @user.profile_image && @user.profile_image.url %>
+          <p></p>
+          <br>
+          <%= f.file_field :profile_image, autofocus: true %>
+          <%= f.hidden_field :profile_image_cache, autofocus: true %>
+        </div>
+        <br>
+        <div class="field">
+          <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true %>
+        </div>
+        <br>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
-  <% end %>
-  <br>
-  <div class="field">
-    <%= f.label :profile %><br />
-    <%= f.text_area :profile, autofocus: true %>
-  </div>
-  <br>
-  <div class="field">
-    <div id="label_field">
-    <%= f.label :label_ids %><br />
-    <%= f.collection_check_boxes(:label_ids, Label.all, :id, :label_name) do |b| %>
-      <%= b.label { b.check_box + b.text } %>
-    <% end %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
+        <% end %>
+        <br>
+        <div class="field">
+          <%= f.label :profile %><br />
+          <%= f.text_area :profile, autofocus: true %>
+        </div>
+        <br>
+        <div class="field">
+          <div id="label_field">
+            <%= f.label :label_ids %><br />
+            <%= f.collection_check_boxes(:label_ids, Label.all, :id, :label_name) do |b| %>
+              <%= b.label { b.check_box + b.text } %>
+            <% end %>
+          </div>
+        </div>
+        <br>
+        <div class="field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+            <%= t('* 6文字以上', count: @minimum_password_length) %>
+          <% end %>
+          (<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)<br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
+        <br>
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+        <p></p>
+        <div class="actions">
+          <%= f.submit t('.update') %>
+        </div>
+        <% end %>
+
+      <h3><%= t('退会する') %></h3>
+
+      <p><%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
+      <br>
+      <%= link_to t('マイページに戻る'), users_show_path, class: "btn btn-default btn-sm" %>
     </div>
   </div>
-  <br>
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-      <%= t('* 6文字以上', count: @minimum_password_length) %>
-    <% end %>
-    (<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)<br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="col-md-6">
+    <div class="thumbnail" style="height:580px">
+      <br>
+      <br>
+      <br>
+      <iframe width="530" height="315" src="https://www.youtube.com/embed/i7OE3IzHSts" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
   </div>
-  <br>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-  <p></p>
-  <div class="actions">
-    <%= f.submit t('.update') %>
-  </div>
-<% end %>
-
-<h3><%= t('退会する') %></h3>
-
-<p><%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
-<br>
-<%= link_to t('マイページに戻る'), users_show_path %>
+</div>

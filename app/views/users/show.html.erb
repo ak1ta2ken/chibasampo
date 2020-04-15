@@ -1,44 +1,65 @@
-<h1>マイページ</h1>
-<p><%= notice %></p>
-<br>
-<% if @user[:profile_image] == nil %>
-  <%= image_tag"birthday.png", width:"325", height:"250" %>
-<% else %>
-  <%= image_tag @user.profile_image.url if @user.profile_image && @user.profile_image.url%>
-<% end %>
-<p></p>
-<br>
-<p>お名前: <%= @user.name %>さん</p>
-<p>メールアドレス: <%= @user.email %></p>
-<p>プロフィール: <%= @user.profile %></p>
-<p>ラベル: <% @user.labels.each do |label| %>
-  <%= label.label_name %>
-<% end %></p>
-<br>
-<%= link_to 'プロフィールを編集する', edit_user_registration_path(@user) %>
-<% if @user.favorites.present? %>
-  &emsp;<%= link_to 'いいね！一覧', favorites_user_path(@user.id) %>
-<% end %>
-<br>
-<br>
-<% unless @strolls == nil %>
-<div>
-  <% if @strolls.present? %>
-    <h2>投稿一覧</h2>
-  <% end %>
-    <table>
-      <% @strolls.each do |stroll| %>
-        <tr>
-          <% if stroll[:image] == nil %>
-            <td><%= image_tag"03summer_ver8-l.jpg", width:"325", height:"250" %></td>
-          <% else %>
-            <td><%= image_tag(stroll.image.url) if stroll.image && stroll.image.url %></td>
-          <% end %>
-          <td>&emsp;投稿日 <%= stroll.user.created_at.strftime("%Y年%-m月%-d日") %></td>
-          <td>&emsp;『<%= stroll.title %>』</td>
-          <td>&emsp; <%= link_to '記事を読む', stroll_path(stroll.id) %></td>
-        </tr>
+<div class="container">
+  <div class="col-md-6">
+    <div class="thumbnail" style="height:580px">
+      <h1>マイページ</h1>
+      <p><%= notice %></p>
+      <br>
+      <% if @user[:profile_image] == nil %>
+        <%= image_tag"birthday.png", width:"325", height:"250" %>
+      <% else %>
+        <%= image_tag @user.profile_image.url if @user.profile_image && @user.profile_image.url%>
       <% end %>
-    </table>
+      <p></p>
+      <br>
+      <p>お名前: <%= @user.name %>さん</p>
+      <p>メールアドレス: <%= @user.email %></p>
+      <p>プロフィール: <%= @user.profile %></p>
+      <p>ラベル: <% @user.labels.each do |label| %>
+        <%= label.label_name %>
+      <% end %></p>
+      <br>
+      <div class="text-right">
+        <div class="btn-group btn-group-sm">
+          <button type="button" class="btn btn-default"><%= link_to '編集する', edit_user_registration_path(@user) %></button>
+          <% if @user.favorites.present? %>
+            <button type="button" class="btn btn-default"><%= link_to 'いいね！一覧', favorites_user_path(@user.id) %></button>
+          <% end %>
+          &emsp;
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="thumbnail" style="height:580px">
+      <br>
+      <br>
+      <br>
+      <iframe width="530" height="315" src="https://www.youtube.com/embed/DJURZ8SfCN4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
 </div>
-<% end %>
+<div clas="container">
+  <div class="col-md-12 text-center">
+    <% if @strolls.present? %>
+      <h2>投稿一覧</h2>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <% @strolls.each do |stroll| %>
+    <div class="col-md-4">
+      <div class="thumbnail" style=height:350px"">
+        <% if stroll[:image] == nil %>
+          <%= image_tag"03summer_ver8-l.jpg", width:"325", height:"250" %>
+        <% else %>
+          <%= image_tag(stroll.image.url) if stroll.image && stroll.image.url %>
+        <% end %>
+        <div class="caption text-center">
+          <h4>&emsp;『<%= stroll.title %>』</h4>
+          <p>&emsp;投稿日 <%= stroll.user.created_at.strftime("%Y年%-m月%-d日") %></p>
+          <p>&emsp;<button class="btn btn-default btn-sm"><%= link_to '記事を読む', stroll_path(stroll.id) %></button></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<div>

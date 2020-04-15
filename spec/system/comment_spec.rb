@@ -8,7 +8,7 @@ RSpec.describe Comment, type: :system do
         stroll = FactoryBot.create(:stroll, user: user)
         visit root_path
         click_link "Strolls"
-        click_link '記事を読む', match: :first
+        click_on "記事を読む", match: :first
       end
       it '投稿にコメントができないこと' do
         expect(page).to have_no_content 'コメントする'
@@ -25,7 +25,7 @@ RSpec.describe Comment, type: :system do
         fill_in('user_password', with: 'password')
         click_on "ログイン"
         click_link "Strolls"
-        click_link '記事を読む', match: :first
+        click_on '記事を読む', match: :first
         fill_in('comment_area', with: 'one')
         click_on 'コメントする'
       end
@@ -44,7 +44,7 @@ RSpec.describe Comment, type: :system do
         fill_in('user_password', with: 'password')
         click_on "ログイン"
         click_link "Strolls"
-        click_link '記事を読む', match: :first
+        click_button '記事を読む', match: :first
         fill_in('comment_area', with: 'one')
         click_on 'コメントする'
         click_link '編集'
@@ -67,7 +67,7 @@ RSpec.describe Comment, type: :system do
         fill_in('user_password', with: 'password')
         click_on "ログイン"
         click_link "Strolls"
-        click_link '記事を読む', match: :first
+        click_button '記事を読む', match: :first
         fill_in('comment_area', with: 'one')
         click_on 'コメントする'
         click_link '削除'
@@ -87,7 +87,7 @@ RSpec.describe Comment, type: :system do
         fill_in('user_password', with: 'password')
         click_on "ログイン"
         click_link "Strolls"
-        click_link '記事を読む', match: :first
+        click_on '記事を読む', match: :first
       end
       it '自分の投稿にコメントができないこと' do
         expect(page).to have_no_content 'コメントする'

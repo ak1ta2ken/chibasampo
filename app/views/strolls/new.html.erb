@@ -1,37 +1,51 @@
-<h2>新しく投稿する</h2>
-<%= form_with(model: @stroll, local:true) do |form| %>
-<% if @stroll.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= @stroll.errors.count %>件のエラーが発生したため散歩は保存されませんでした。</h2>
-    <ul>
-    <% @stroll.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
+<div class="container">
+  <div class="col-md-6">
+    <div class="thumbnail" style="height:580px">
+      <h2>新しく投稿する</h2>
+      <%= form_with(model: @stroll, local:true) do |form| %>
+        <% if @stroll.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= @stroll.errors.count %>件のエラーが発生したため散歩は保存されませんでした。</h2>
+            <ul>
+              <% @stroll.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <br>
+        <div class="stroll_image">
+          <%= form.file_field :image %>
+          <%= form.hidden_field :image_cache %>
+        </div>
+        <br>
+        <div class="stroll_title">
+          <%= form.label :title %>
+          <%= form.text_field :title %>
+        </div>
+        <br>
+        <div class="stroll_content">
+          <%= form.label :content %>&emsp;&emsp;
+          <%= form.text_area :content %>
+        </div>
+        <br>
+        <div class="stroll_tag">
+          <%= form.label :tag %>&emsp;&emsp;
+          <%= form.select :tag, ["観る・遊ぶ・体験する", "グルメ", "特産品・おみやげ", "暮らし", "歴史・文化", "がんばろう！千葉"], {include_blank: '選択'} %>
+        </div>
+        <br>
+        &emsp;&emsp;<%= form.submit '投稿する' %>
+        &emsp;&emsp;<%= link_to "一覧へ戻る", strolls_path, class: "btn btn-default btn-sm" %>
+      <% end %>
+      <br>
+    </div>
   </div>
-<% end %>
-  <br>
-  <div class="stroll_image">
-    <%= form.file_field :image %>
-    <%= form.hidden_field :image_cache %>
+  <div class="col-md-6">
+    <div class="thumbnail" style="height:580px">
+      <br>
+      <br>
+      <br>
+      <iframe width="530" height="315" src="https://www.youtube.com/embed/xRA6k-W1i68" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
   </div>
-  <br>
-  <div class="stroll_title">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-  <br>
-  <div class="stroll_content">
-    <%= form.label :content %>&emsp;&emsp;
-    <%= form.text_area :content %>
-  </div>
-  <br>
-  <div class="stroll_tag">
-    <%= form.label :tag %>&emsp;&emsp;
-    <%= form.select :tag, ["観る・遊ぶ・体験する", "グルメ", "特産品・おみやげ", "暮らし", "歴史・文化", "がんばろう！千葉"], {include_blank: '選択'} %>
-  </div>
-  <br>
-  <%= form.submit '投稿する' %>
-<% end %>
-<br>
-<%= link_to "一覧へ戻る", strolls_path %>
+</div>

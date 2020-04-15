@@ -52,7 +52,7 @@ RSpec.describe User, type: :system do
         click_on 'ログイン'
       end
       it 'プロフィールが編集できること' do
-        click_link 'プロフィールを編集する'
+        click_on '編集する', match: :first
         fill_in('user_name', with: 'change_user')
         fill_in('user_email', with: 'change@com')
         click_on '更新'
@@ -62,7 +62,7 @@ RSpec.describe User, type: :system do
       it 'プロフィールにラベルが貼れること' do
         @label = FactoryBot.create(:label)
         @label_id = @label.id
-        click_link 'プロフィールを編集する'
+        click_on '編集する', match: :first
         check "user_label_ids_#{@label_id}"
         click_on '更新'
         expect(page).to have_content 'chiba'
@@ -72,7 +72,7 @@ RSpec.describe User, type: :system do
         @label_id = @label.id
         @second_label = FactoryBot.create(:second_label)
         @second_label_id = @second_label.id
-        click_link 'プロフィールを編集する'
+        click_on '編集する', match: :first
         check "user_label_ids_#{@label_id}"
         check "user_label_ids_#{@second_label_id}"
         click_on '更新'
@@ -82,16 +82,16 @@ RSpec.describe User, type: :system do
       it 'プロフィールのラベルがはがせること' do
         @label= FactoryBot.create(:label)
         @label_id = @label.id
-        click_link 'プロフィールを編集する'
+        click_on '編集する', match: :first
         check "user_label_ids_#{@label_id}"
         click_on '更新'
-        click_link 'プロフィールを編集する'
+        click_link '編集する', match: :first
         uncheck "user_label_ids_#{@label_id}"
         click_on '更新'
         expect(page).to have_no_content 'chiba'
       end
       it 'アカウントが削除されること' do
-        click_link 'プロフィールを編集する'
+        click_on '編集する', match: :first
         click_on 'アカウント削除'
         page.driver.browser.switch_to.alert.accept
         expect(page).to have_content 'アカウントを削除しました。またのご利用をお待ちしております。'
@@ -103,7 +103,7 @@ RSpec.describe User, type: :system do
         click_link '記事を読む', match: :first
         click_link 'いいね！'
         click_link 'Profile'
-        click_link 'いいね！一覧'
+        click_on 'いいね！一覧', match: :first
         expect(page).to have_content 'userさんのいいね！一覧'
       end
     end
