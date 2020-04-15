@@ -72,21 +72,21 @@ function anser(num) {
   if (count < qa.length) {
 	   quiz();
    } else {
-    s = "<table border='1'><caption>お疲れさまでした。</caption>";
-		s += "<tr><th>Question</th>";
+    s = "<table border='1' align='center'><caption><p align='center'>お疲れさまでした。</p></caption>";
+		s += "<tr align='center'><th align='center'>Question</th>";
 		for (n=0;n<qa.length;n++) {
-			s += "<th>" + (n+1) + "</th>";
+			s += "<th align='center'>" + (n+1) + "</th>";
 		}
 		s += "</tr>";
-		s += "<tr><th>Answer</th>";
+		s += "<tr align='center'><th align='center'>Answer</th>";
 		for (n=0;n<qa.length;n++) {
-			s += "<td>" + ansers[n] + "</td>";
+			s += "<td align='center'>" + ansers[n] + "</td>";
 		}
 		s += "</tr>";
 		s += "</table>";
  		document.getElementById("text_q").innerHTML = s;
 		s = "<a href='javascript:history.back()'></a>";
-		s += "<a href='javascript:setReady()'>はじめから</a>";
+		s += "<a href='javascript:setReady()'><p align='center'>はじめから</p></a>";
 		s += "<a href=''></a>";
  		document.getElementById("text_s").innerHTML = s;
  	}
