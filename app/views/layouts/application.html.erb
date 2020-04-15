@@ -12,19 +12,19 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/"><b>ChibaSampo</b><span class="sr-only">(current)</span></a>
-        <a class="navbar-brand" href="/strolls"><b>Strolls</b><span class="sr-only">(current)</span></a>
-        <a class="navbar-brand" href="/strolls/ganbarou"><b>Ganbarou</b><span class="sr-only">(current)</span></a>
-        <a class="navbar-brand" href="/strolls/people"><b>People</b><span class="sr-only">(current)</span></a>
-        <a class="navbar-brand" href="/strolls/quiz"><b>Quiz</b><span class="sr-only">(current)</span></a>
+        <a class="navbar-brand" href="/" style="font-size:2rem">ChibaSampo<span class="sr-only">(current)</span></a>
+        <a class="navbar-brand" href="/strolls" style="font-size:2rem">Strolls<span class="sr-only">(current)</span></a>
+        <a class="navbar-brand" href="/strolls/ganbarou" style="font-size:2rem">Ganbarou<span class="sr-only">(current)</span></a>
+        <a class="navbar-brand" href="/strolls/people" style="font-size:2rem">People<span class="sr-only">(current)</span></a>
+        <a class="navbar-brand" href="/strolls/quiz" style="font-size:2rem">Quiz<span class="sr-only">(current)</span></a>
         <ul class="navbar-right">
-          <li class="navbar-brand">
+          <li class="navbar-brand" style="font-size:2rem">
             <% if user_signed_in? %>
-              <b><%= link_to "Profile", users_show_path %></b>&emsp;&emsp;
-              <b><%= link_to "Logout", destroy_user_session_path, method: :delete %></b>&emsp;
+              <%= link_to "Profile", users_show_path %>&emsp;&emsp;
+              <%= link_to "Logout", destroy_user_session_path, method: :delete %>&emsp;
             <% else %>
-              <b><%= link_to "Signup", new_user_registration_path %></b>&emsp;&emsp;
-              <b><%= link_to "Login", new_user_session_path %></b>&emsp;
+              <%= link_to "Signup", new_user_registration_path %>&emsp;&emsp;
+              <%= link_to "Login", new_user_session_path %>&emsp;
             <% end %>
           </li>
         </ul>
