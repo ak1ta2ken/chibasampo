@@ -31,9 +31,9 @@
           <%= image_tag(stroll.image.url) if stroll.image && stroll.image.url %>
         <% end %>
         <div class="caption text-center">
-        <h4>&emsp;『<%= stroll.title %>』</h4>
-        <p>&emsp;投稿日 <%= stroll.user.created_at.strftime("%Y年%-m月%-d日") %></p>
-        <p>&emsp;<button class="btn btn-default btn-sm"><%= link_to '記事を読む', stroll_path(stroll.id) %></button></p>
+          <h4>&emsp;『<%= stroll.title %>』</h4>
+          <p>&emsp;投稿日 <%= stroll.user.created_at.strftime("%Y年%-m月%-d日") %></p>
+          <p>&emsp;<button class="btn btn-default btn-sm"><%= link_to '記事を読む', stroll_path(stroll.id) %></button></p>
         </div>
       </div>
     </div>

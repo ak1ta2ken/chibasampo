@@ -7,21 +7,21 @@
   </div>
 </div>
 <div class="container">
-<% @favorites.each do |favorite| %>
-  <% stroll = Stroll.find(favorite.stroll_id) %>
-  <div class="col-md-4">
-    <div class="thumbnail" style="height:360px; border:none">
-      <% if stroll[:image] == nil %>
-        <%= image_tag"03summer_ver8-l.jpg", width:"325", height:"250" %>
-      <% else %>
-        <%= image_tag stroll.image.url %>
-      <% end %>
-      <div class="caption text-center">
-        <h4>&emsp;『<%= stroll.title %>』</h4>
-        <p>&emsp;投稿者 <%= stroll.user.name %>さん</p>
-        <p>&emsp;<button class="btn btn-default btn-sm"><%= link_to '記事を読む', stroll_path(stroll.id) %></button></p>
+  <% @favorites.each do |favorite| %>
+    <div class="col-md-4">
+      <div class="thumbnail" style="height:360px; border:none">
+        <% stroll = Stroll.find(favorite.stroll_id) %>
+          <% if stroll[:image] == nil %>
+            <%= image_tag"03summer_ver8-l.jpg", width:"325", height:"250" %>
+          <% else %>
+            <%= image_tag(stroll.image.url) if stroll.image && stroll.image.url %>
+          <% end %>
+        <div class="caption text-center">
+          <h4>&emsp;『<%= stroll.title %>』</h4>
+          <p>&emsp;投稿者 <%= stroll.user.name %>さん</p>
+          <p>&emsp;<button class="btn btn-default btn-sm"><%= link_to '記事を読む', stroll_path(stroll.id) %></button></p>
+        </div>
       </div>
-      <% end %>
     </div>
-  </div>
+  <% end %>
 </div>
