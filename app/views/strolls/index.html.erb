@@ -1,6 +1,6 @@
 <div class="message">
   <h1>あなたの「ちばさんぽ」教えて！</h1>
-  <p>千葉は広いので意外と県民の皆さんも千葉のことを知りません。</p>
+  <p>千葉は広いので県民の皆さんも千葉のことを知りません。</p>
   <p>あなたが知ってる千葉を共有してみんなで千葉を知りましょう。</p>
   <p><%= notice %></p>
 </div>
@@ -22,7 +22,7 @@
 <div class="container">
   <% @strolls.each do |stroll| %>
     <div class="col-md-4">
-      <div class="thumbnail stroll_row" style="height:390px">
+      <div class="thumbnail stroll_row" style="height:390px; border:none">
         <% if stroll[:image] == nil %>
           <%= image_tag"03summer_ver8-l.jpg", width:"325", height:"250" %>
         <% else %>

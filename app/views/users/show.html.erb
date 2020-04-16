@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col-md-6">
-    <div class="thumbnail" style="height:580px">
+    <div class="thumbnail" style="height:580px; border:none">
       <h1>マイページ</h1>
       <p><%= notice %></p>
       <br>
@@ -30,7 +30,7 @@
     </div>
   </div>
   <div class="col-md-6">
-    <div class="thumbnail" style="height:580px">
+    <div class="thumbnail" style="height:580px; border:none">
       <br>
       <br>
       <br>
@@ -48,7 +48,7 @@
 <div class="container">
   <% @strolls.each do |stroll| %>
     <div class="col-md-4">
-      <div class="thumbnail" style=height:350px"">
+      <div class="thumbnail" style="height:360px; border:none">
         <% if stroll[:image] == nil %>
           <%= image_tag"03summer_ver8-l.jpg", width:"325", height:"250" %>
         <% else %>
@@ -62,4 +62,4 @@
       </div>
     </div>
   <% end %>
-<div>
+</div>

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col-md-6">
-    <div class="thumbnail" style="height:580px">
+    <div class="thumbnail" style="height:580px; border:none">
       <h2>記事を編集する</h2>
       <%= form_with(model: @stroll, local:true) do |form| %>
         <% if @stroll.errors.any? %>
@@ -42,7 +42,7 @@
     </div>
   </div>
   <div class="col-md-6">
-    <div class="thumbnail" style="height:580px">
+    <div class="thumbnail" style="height:580px; border:none">
       <br>
       <br>
       <br>
