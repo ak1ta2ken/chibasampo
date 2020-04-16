@@ -6,7 +6,7 @@
       <p id="error_explanation"></p>
       <br>
       <% if @stroll[:image] == nil %>
-        <%= image_tag"03summer_ver8-l.jpg", width:"325", height:"250" %>
+        <%= image_tag"03summer_ver8-l.jpg", width:"400", height:"325" %>
       <% else %>
         <%= image_tag(@stroll.image.url) if @stroll.image && @stroll.image.url %>
       <% end %>
@@ -50,7 +50,7 @@
   </div>
   <div class="col-md-5">
     <div class="thumbnail" style="height:500px; border:none">
-      <h2>投稿者プロフィール</h2>
+      <h3>投稿者プロフィール</h3>
       <br>
       <% if @stroll.user[:profile_image] == nil %>
         <%= image_tag"birthday.png", width:"325", height:"250" %>
