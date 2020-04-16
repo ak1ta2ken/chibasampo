@@ -15,7 +15,7 @@
  *= require_self
  */
 html{font-size: 14px;}
-body{background-image: url('ee09b178690b56f2475ff159782b5fa1_m.jpeg'); background-size: auto;}
+/* body{background-image: url('ee09b178690b56f2475ff159782b5fa1_m.jpeg'); background-size: auto;} */
 .navbar-right{list-style: none;}
 .no-gutters{text-align: center;}
 .message{text-align: center;}
