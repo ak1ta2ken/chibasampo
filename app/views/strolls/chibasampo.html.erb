@@ -1,10 +1,33 @@
 <div class="container-fluid">
   <div class="no-gutters">
-    <%= image_tag"bag.jpg", width:"100%" %>
+    <div id="img-box">
+      <a href="https://bridgechiba.com/"><img src="https://p1-e6eeae93.imageflux.jp/c!/a=2,w=800,h=800/satokatsuaki/455f9159b3a18944d279.jpg" style="height:75% ;width:75%"></a>
+      <div id="img-box-mini">
+        <p id="img-box-text">Stroll Around Chiba!</p>
+      </div>
+    </div>
   </div>
-  <%# <div class="jumbotron"> %>
-    <%# <h1 class="display-3"> %>
-      <%# Stroll Around Chiba! %>
-    <%# </h1> %>
-  <%# </div> %>
 </div>
+
+<style>
+#img-box{
+  position: relative;
+}
+#img-box-mini{
+  position: absolute;
+  top: 210px;
+  left: 0px;
+  width:100%;
+  color: #fff;
+  font-size: 100px;
+}
+#img-box-text{
+  text-align: center;
+  margin-top: 0;
+  width: 100%;
+  color: #FF8C00;
+  background: -webkit-linear-gradient(0deg, #40E0D0, #FF8C00, #FF0080);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+</style>
