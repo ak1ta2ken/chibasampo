@@ -10,7 +10,7 @@
     <div class="text-center">
       <br>
       <h1>ちばクイズ</h1>
-      <p>全部で10問あります。めざせ全問正解。</p>
+      <p>全部で15問あります。めざせ全問正解。</p>
       <p>受験するたびに問題がシャッフルされます。</p>
       <br>
       <%= image_tag"chi-ba_big.gif", width:"360", height:"261" %>
@@ -60,7 +60,7 @@ qa[28] = ["人口減率の高い市町村1位は？","銚子市", "八街市", "
 qa[29] = ["県内エリア別観光客数1位は？","香取", "東葛飾", "長生", '安房', '印旛',2];
 
 q_sel = 5;
-q_max = 10;
+q_max = 15;
 setReady();
 
 function setReady() {
@@ -96,13 +96,13 @@ function anser(num) {
 	   quiz();
    } else {
     s = "<table border='1' align='center'><caption><p align='center'>お疲れさまでした。</p></caption>";
-		s += "<tr align='center'><th align='center'>Question</th>";
-		for (n=0;n<10;n++) {
+		s += "<tr align='center'><th align='center'>問題</th>";
+		for (n=0;n<15;n++) {
 			s += "<th align='center'>" + (n+1) + "</th>";
 		}
 		s += "</tr>";
-		s += "<tr align='center'><th align='center'>Answer</th>";
-		for (n=0;n<10;n++) {
+		s += "<tr align='center'><th align='center'>解答</th>";
+		for (n=0;n<15;n++) {
 			s += "<td align='center'>" + ansers[n] + "</td>";
 		}
 		s += "</tr>";

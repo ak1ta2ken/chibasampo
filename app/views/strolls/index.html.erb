@@ -8,10 +8,10 @@
 <br>
 <div class="no-gutters">
 <%= search_form_for @q do |f| %>
-  <%= f.label :title_or_content_or_users, "キーワード" %>&ensp;
+  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&ensp;
   <%= f.search_field :title_or_content_or_user_name_or_user_profile_cont_any %>
   &emsp;
-  <%= f.label :tag %>&ensp;
+  <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>&ensp;
   <%= f.select :tag_eq, [["観る・遊ぶ・体験する"], ["グルメ"], ["特産品・おみやげ"], ["暮らし"], ["歴史・文化"], ["がんばろう！千葉"]], {include_blank: '選択'} %>
   &emsp;
   <%= f.submit "検索" %>
@@ -31,9 +31,9 @@
           <%= image_tag(stroll.image.url) if stroll.image && stroll.image.url %>
         <% end %>
         <div class="caption text-center">
-          <h4>&emsp;『<%= stroll.title %>』</h4>
-          <p>&emsp;投稿日 <%= stroll.user.created_at.strftime("%Y年%-m月%-d日") %></p>
-          <p>&emsp;<button class="btn btn-default btn-sm"><%= link_to '記事を読む', stroll_path(stroll.id) %></button></p>
+          <h4>『<%= stroll.title %>』</h4>
+          <p><span class="glyphicon glyphicon-time" aria-hidden="true">&emsp;<%= stroll.user.created_at.strftime("%Y年%-m月%-d日") %></span></p>
+          <p><%= link_to '記事を読む', stroll_path(stroll.id), class: "btn btn-default btn-sm" %></p>
         </div>
       </div>
     </div>

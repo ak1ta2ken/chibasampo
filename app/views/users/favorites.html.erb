@@ -17,9 +17,9 @@
             <%= image_tag(stroll.image.url) if stroll.image && stroll.image.url %>
           <% end %>
         <div class="caption text-center">
-          <h4>&emsp;『<%= stroll.title %>』</h4>
-          <p>&emsp;投稿者 <%= stroll.user.name %>さん</p>
-          <p>&emsp;<button class="btn btn-default btn-sm"><%= link_to '記事を読む', stroll_path(stroll.id) %></button></p>
+          <h4>『<%= stroll.title %>』</h4>
+          <p><span class="glyphicon glyphicon-user" aria-hidden="true">&emsp;<%= stroll.user.name %>さん</span></p>
+          <p><%= link_to '記事を読む', stroll_path(stroll.id), class: "btn btn-default btn-sm" %></p>
         </div>
       </div>
     </div>

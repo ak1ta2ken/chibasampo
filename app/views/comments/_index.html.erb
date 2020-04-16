@@ -3,12 +3,15 @@
     <% if comment.id.present? %>
       <li>
         <p><%= comment.created_at.strftime("%Y年%-m月%-d日") %>&ensp;<%= comment.user.name %>さんより</p>
-        <p><%= comment.content %>&emsp;
-          <% if user_signed_in? && comment.user_id == current_user.id %>
-            <%= link_to '編集', edit_stroll_comment_path(comment.stroll, comment), remote:true %>
-            <%= link_to '削除', [comment.stroll, comment], method: :delete, data: { confirm: '本当に削除していいですか？' }, remote: true %>
-          <% end %></p>
+        <%= comment.content %>&emsp;
+        <% if user_signed_in? && comment.user_id == current_user.id %>
+          <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-default"><%= link_to '編集', edit_stroll_comment_path(comment.stroll, comment), remote:true %></button>
+            <button type="button" class="btn btn-default"><%= link_to '削除', [comment.stroll, comment], method: :delete, data: { confirm: '本当に削除していいですか？' }, remote: true %></button>
+          </div>
+        <% end %>
       </li>
+      <br>
     <% end %>
   <% end %>
 </ul>

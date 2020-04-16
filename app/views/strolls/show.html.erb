@@ -11,35 +11,41 @@
         <%= image_tag(@stroll.image.url) if @stroll.image && @stroll.image.url %>
       <% end %>
       <br>
-      <p>投稿日 <%= @stroll.user.created_at.strftime("%Y年%-m月%-d日") %></p>
-      <p>投稿者 <%= @stroll.user.name %>さん</p>
-      <p>『<%= @stroll.title %>』</p>
-      <p>記事: <%= @stroll.content %></p>
-      <p>タグ: <%= @stroll.tag %></p>
-      <% if user_signed_in? && current_user.id == @stroll.user_id %>
-        <div class="btn-group btn-group-sm">
-          <button type="button" class="btn btn-default"><%= link_to '編集', edit_stroll_path(@stroll.id) %></button>
-          <button type="button" class="btn btn-default"><%= link_to '削除', stroll_path(@stroll.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button>
-        </div>
-      <% end %>
-      <% if current_user %>
-        <% unless @stroll.user_id == current_user.id %>
-          <% if @favorite.present? %>
-            <%= link_to 'いいね！を取り消す', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-info' %>
-          <% else %>
-            <%= link_to 'いいね！', favorites_path(stroll_id: @stroll.id), method: :post, class: 'btn btn-warning' %>
-          <% end %>
-        <% end %>
-      <% end %>
-      <%= link_to "一覧に戻る", strolls_path, class: "btn btn-default btn-sm" %>
-      <p></p>
-      <p>コメント: </p>
+      <div class="text-center">
+        <h4>『<%= @stroll.title %>』</h4>
+        <p><span class="glyphicon glyphicon-file" aria-hidden="true">&emsp;<%= @stroll.content %></span></p>
+        <p><span class="glyphicon glyphicon-tag" aria-hidden="true">&emsp;<%= @stroll.tag %></span></p>
+        <p><span class="glyphicon glyphicon-time" aria-hidden="true">&emsp;<%= @stroll.user.created_at.strftime("%Y年%-m月%-d日") %></span></p>
+      </div>
+      <div class="text-center">
+      <p><span class="glyphicon glyphicon-comment" aria-hidden="true">&emsp;</span></p>
       <div id="comments_area">
         <%= render partial: 'comments/index', locals: { comments: @comments, stroll: @stroll } %>
       </div>
       <% if user_signed_in? && @stroll.user_id != current_user.id %>
         <%= render partial: 'comments/form', locals: { comment: @comment, stroll: @stroll } %>
       <% end %>
+      </div>
+      <div class="text-center">
+        <br>
+      <% if user_signed_in? && current_user.id == @stroll.user_id %>
+        <div class="btn-group btn-group-sm">
+          <%= link_to '編集', edit_stroll_path(@stroll.id), class: "btn btn-default btn-sm" %>
+          <%= link_to '削除', stroll_path(@stroll.id), class: "btn btn-default btn-sm", method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+        </div>
+      <% end %>
+      <% if current_user %>
+        <% unless @stroll.user_id == current_user.id %>
+          <% if @favorite.present? %>
+            <%= link_to 'いいね！を取り消す', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-warning' %>
+          <% else %>
+            <%= link_to 'いいね！', favorites_path(stroll_id: @stroll.id), method: :post, class: 'btn btn-info' %>
+          <% end %>
+        <% end %>
+      <% end %>
+      &emsp;<%= link_to "一覧に戻る", strolls_path, class: "btn btn-default btn-sm" %>
+      </div>
+      <br>
     </div>
   </div>
   <div class="col-md-5">
@@ -53,9 +59,9 @@
       <% end %>
       <p></p>
       <br>
-      <p>お名前: <%= @stroll.user.name %>さん</p>
-      <p>プロフィール: <%= @stroll.user.profile %></p>
-      <p>ラベル: <% @stroll.user.labels.each do |label| %>
+      <p><span class="glyphicon glyphicon-user" aria-hidden="true">&emsp;<%= @stroll.user.name %>さん</span></p>
+      <p><span class="glyphicon glyphicon-pencil" aria-hidden="true">&emsp;<%= @stroll.user.profile %></span></p>
+      <p><span class="glyphicon glyphicon-bookmark" aria-hidden="true">&ensp;</span><% @stroll.user.labels.each do |label| %>
         <%= label.label_name %>
       <% end %></p>
     </div>

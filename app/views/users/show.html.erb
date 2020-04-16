@@ -11,18 +11,18 @@
       <% end %>
       <p></p>
       <br>
-      <p>お名前: <%= @user.name %>さん</p>
-      <p>メールアドレス: <%= @user.email %></p>
-      <p>プロフィール: <%= @user.profile %></p>
-      <p>ラベル: <% @user.labels.each do |label| %>
+      <p><span class="glyphicon glyphicon-user" aria-hidden="true">&emsp;<%= @user.name %>さん</span></p>
+      <p><span class="glyphicon glyphicon-envelope" aria-hidden="true">&emsp;<%= @user.email %></span></p>
+      <p><span class="glyphicon glyphicon-pencil" aria-hidden="true">&emsp;<%= @user.profile %></span></p>
+      <p><span class="glyphicon glyphicon-bookmark" aria-hidden="true">&ensp;</span><% @user.labels.each do |label| %>
         <%= label.label_name %>
       <% end %></p>
       <br>
       <div class="text-right">
         <div class="btn-group btn-group-sm">
-          <button type="button" class="btn btn-default"><%= link_to '編集する', edit_user_registration_path(@user) %></button>
+          <%= link_to '編集する', edit_user_registration_path(@user), class: "btn btn-default btn-sm" %>
           <% if @user.favorites.present? %>
-            <button type="button" class="btn btn-default"><%= link_to 'いいね！一覧', favorites_user_path(@user.id) %></button>
+          <%= link_to 'いいね！一覧', favorites_user_path(@user.id), class: "btn btn-default btn-sm" %>
           <% end %>
           &emsp;
         </div>
@@ -55,9 +55,9 @@
           <%= image_tag(stroll.image.url) if stroll.image && stroll.image.url %>
         <% end %>
         <div class="caption text-center">
-          <h4>&emsp;『<%= stroll.title %>』</h4>
-          <p>&emsp;投稿日 <%= stroll.user.created_at.strftime("%Y年%-m月%-d日") %></p>
-          <p>&emsp;<button class="btn btn-default btn-sm"><%= link_to '記事を読む', stroll_path(stroll.id) %></button></p>
+          <h4>『<%= stroll.title %>』</h4>
+          <p><span class="glyphicon glyphicon-time" aria-hidden="true">&emsp;<%= stroll.user.created_at.strftime("%Y年%-m月%-d日") %></span></p>
+          <p><%= link_to '記事を読む', stroll_path(stroll.id), class: "btn btn-default btn-sm" %></p>
         </div>
       </div>
     </div>
