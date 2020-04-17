@@ -96,15 +96,15 @@ RSpec.describe User, type: :system do
         page.driver.browser.switch_to.alert.accept
         expect(page).to have_content 'アカウントを削除しました。またのご利用をお待ちしております。'
       end
-      it 'いいね！一覧を確認できること' do
+      it 'お気に入り一覧を確認できること' do
         second_user = FactoryBot.create(:second_user)
         stroll = FactoryBot.create(:stroll, user: second_user)
         click_link 'Strolls'
         click_link '記事を読む', match: :first
-        click_link 'いいね！'
+        click_link 'お気に入りに登録'
         click_link 'Profile'
-        click_on 'いいね！一覧', match: :first
-        expect(page).to have_content 'userさんのいいね！一覧'
+        click_on 'お気に入り一覧', match: :first
+        expect(page).to have_content 'userさんのお気に入り一覧'
       end
     end
   end

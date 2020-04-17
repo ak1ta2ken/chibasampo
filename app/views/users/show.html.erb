@@ -22,7 +22,7 @@
         <div class="btn-group btn-group-sm">
           <%= link_to '編集する', edit_user_registration_path(@user), class: "btn btn-default btn-sm" %>
           <% if @user.favorites.present? %>
-          <%= link_to 'いいね！一覧', favorites_user_path(@user.id), class: "btn btn-default btn-sm" %>
+          <%= link_to 'お気に入り一覧', favorites_user_path(@user.id), class: "btn btn-default btn-sm" %>
           <% end %>
           &emsp;
         </div>

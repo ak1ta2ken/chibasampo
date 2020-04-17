@@ -7,7 +7,7 @@ RSpec.describe Favorite, type: :model do
     @stroll = FactoryBot.create(:stroll, user_id: @user.id)
     @second_stroll = FactoryBot.create(:second_stroll, user_id: @user.id)
   end
-  it "複数の投稿にいいね！ができること" do
+  it "複数の投稿をお気に入り登録ができること" do
     favorite = Favorite.create(user_id: @second_user.id, stroll_id: @stroll.id)
     second_favorite = Favorite.create(user_id: @second_user.id, stroll_id: @second_stroll.id)
     expect(favorite).to be_valid

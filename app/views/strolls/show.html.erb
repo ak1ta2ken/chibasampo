@@ -37,9 +37,9 @@
       <% if current_user %>
         <% unless @stroll.user_id == current_user.id %>
           <% if @favorite.present? %>
-            <%= link_to 'いいね！を取り消す', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-warning' %>
+            <%= link_to 'お気に入りから解除', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-warning' %>
           <% else %>
-            <%= link_to 'いいね！', favorites_path(stroll_id: @stroll.id), method: :post, class: 'btn btn-info' %>
+            <%= link_to 'お気に入りに登録', favorites_path(stroll_id: @stroll.id), method: :post, class: 'btn btn-info' %>
           <% end %>
         <% end %>
       <% end %>
