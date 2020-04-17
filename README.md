@@ -60,4 +60,5 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vSeudi-5m7XKdCs1sPI1ICZdrDTJClxU
 - minimagick
 - faker
 - ransack
+- font-awesome-rails
 - fog-aws

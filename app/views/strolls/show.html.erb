@@ -12,13 +12,14 @@
       <% end %>
       <br>
       <div>
+        <div class="text-center">
         <h4>『<%= @stroll.title %>』</h4>
+        </div>
         <p><i class="fa fa-file">&emsp;<%= @stroll.content %></i></p>
         <p><i class="fa fa-tag">&emsp;<%= @stroll.tag %></i></p>
         <p><i class="fa fa-edit">&emsp;<%= @stroll.user.created_at.strftime("%Y年%-m月%-d日") %></i></p>
       </div>
       <div>
-      <p><i class="fa fa-comments">&emsp;</i></p>
       <div id="comments_area">
         <%= render partial: 'comments/index', locals: { comments: @comments, stroll: @stroll } %>
       </div>
@@ -26,7 +27,7 @@
         <%= render partial: 'comments/form', locals: { comment: @comment, stroll: @stroll } %>
       <% end %>
       </div>
-      <div>
+      <div class="text-center">
         <br>
       <% if user_signed_in? && current_user.id == @stroll.user_id %>
         <div class="btn-group btn-group-sm">
