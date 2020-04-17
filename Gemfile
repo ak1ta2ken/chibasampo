@@ -47,3 +47,6 @@ gem 'faker'
 gem 'ransack'
 
 gem "font-awesome-rails"
+
+gem "fog-aws"
+gem "dotenv-rails"
