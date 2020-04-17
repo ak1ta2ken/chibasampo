@@ -18,8 +18,10 @@
   <%= link_to '新しく投稿する', new_stroll_path, class: 'btn btn-danger' %>
 <% end %>
 </div>
-<p><%= notice %></p>
 <br>
+<div class="message">
+<p><%= notice %></p>
+</div>
 <br>
 <div class="container">
   <% @strolls.each do |stroll| %>
