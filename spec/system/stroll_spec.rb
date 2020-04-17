@@ -116,12 +116,12 @@ RSpec.describe Stroll, type: :system do
       it '投稿をお気に入り登録ができること' do
         click_link '記事を読む', match: :first
         click_link 'お気に入りに登録'
-        expect(page).to have_content 'userさんの記事をお気に入りに登録しました'
+        expect(page).to have_content 'お気に入りに登録しました'
       end
       it '1つの投稿に1回しかお気に入り登録ができないこと' do
         click_link '記事を読む', match: :first
         click_link 'お気に入りに登録'
-        expect(page).to have_content 'userさんの記事をお気に入りに登録しました'
+        expect(page).to have_content 'お気に入りに登録しました'
         click_link '記事を読む', match: :first
         expect(page).to have_content 'お気に入りから解除'
       end
