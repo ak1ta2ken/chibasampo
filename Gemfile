@@ -9,12 +9,6 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
-gem 'unicorn'
-gem 'mini_racer', platforms: :ruby
-
-gem 'ed25519'
-gem 'bcrypt_pbkdf'
-
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
@@ -26,11 +20,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'spring-commands-rspec'
-  gem 'capistrano', '3.6.0'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
-  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -59,5 +48,4 @@ gem 'ransack'
 
 gem "font-awesome-rails"
 
-gem "fog-aws"
 gem "dotenv-rails"
