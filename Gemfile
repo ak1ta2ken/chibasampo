@@ -45,3 +45,5 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'faker'
 gem 'ransack'
+
+gem "font-awesome-rails"

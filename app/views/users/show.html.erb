@@ -11,10 +11,10 @@
       <% end %>
       <p></p>
       <br>
-      <p><span class="glyphicon glyphicon-user" aria-hidden="true">&emsp;<%= @user.name %>さん</span></p>
-      <p><span class="glyphicon glyphicon-envelope" aria-hidden="true">&emsp;<%= @user.email %></span></p>
-      <p><span class="glyphicon glyphicon-pencil" aria-hidden="true">&emsp;<%= @user.profile %></span></p>
-      <p><span class="glyphicon glyphicon-bookmark" aria-hidden="true">&ensp;</span><% @user.labels.each do |label| %>
+      <p><i class="fa fa-user">&emsp;<%= @user.name %>さん</i></p>
+      <p><i class="fa fa-envelope">&emsp;<%= @user.email %></i></p>
+      <p><i class="fa fa-id-card">&emsp;<%= @user.profile %></i></p>
+      <p><i class="fa fa-bookmark">&ensp;</i><% @user.labels.each do |label| %>
         <%= label.label_name %>
       <% end %></p>
       <br>
@@ -56,7 +56,7 @@
         <% end %>
         <div class="caption text-center">
           <h4>『<%= stroll.title %>』</h4>
-          <p><span class="glyphicon glyphicon-time" aria-hidden="true">&emsp;<%= stroll.user.created_at.strftime("%Y年%-m月%-d日") %></span></p>
+          <p><i class="fa fa-edit">&emsp;<%= stroll.user.created_at.strftime("%Y年%-m月%-d日") %></i></p>
           <p><%= link_to '記事を読む', stroll_path(stroll.id), class: "btn btn-default btn-sm" %></p>
         </div>
       </div>

@@ -8,10 +8,10 @@
 <br>
 <div class="no-gutters">
 <%= search_form_for @q do |f| %>
-  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&ensp;
+  <i class="fa fa-search"></i>&ensp;
   <%= f.search_field :title_or_content_or_user_name_or_user_profile_cont_any %>
   &emsp;
-  <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>&ensp;
+  <i class="fa fa-tag"></i>&ensp;
   <%= f.select :tag_eq, [["観る・遊ぶ・体験する"], ["グルメ"], ["特産品・おみやげ"], ["暮らし"], ["歴史・文化"], ["がんばろう！千葉"]], {include_blank: '選択'} %>
   &emsp;
   <%= f.submit "検索" %>
@@ -32,7 +32,7 @@
         <% end %>
         <div class="caption text-center">
           <h4>『<%= stroll.title %>』</h4>
-          <p><span class="glyphicon glyphicon-time" aria-hidden="true">&emsp;<%= stroll.user.created_at.strftime("%Y年%-m月%-d日") %></span></p>
+          <p><i class="fa fa-edit" aria-hidden="true">&emsp;<%= stroll.user.created_at.strftime("%Y年%-m月%-d日") %></i></p>
           <p><%= link_to '記事を読む', stroll_path(stroll.id), class: "btn btn-default btn-sm" %></p>
         </div>
       </div>

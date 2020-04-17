@@ -13,12 +13,12 @@
       <br>
       <div>
         <h4>『<%= @stroll.title %>』</h4>
-        <p><span class="glyphicon glyphicon-file" aria-hidden="true">&emsp;<%= @stroll.content %></span></p>
-        <p><span class="glyphicon glyphicon-tag" aria-hidden="true">&emsp;<%= @stroll.tag %></span></p>
-        <p><span class="glyphicon glyphicon-time" aria-hidden="true">&emsp;<%= @stroll.user.created_at.strftime("%Y年%-m月%-d日") %></span></p>
+        <p><i class="fa fa-file">&emsp;<%= @stroll.content %></i></p>
+        <p><i class="fa fa-tag">&emsp;<%= @stroll.tag %></i></p>
+        <p><i class="fa fa-edit">&emsp;<%= @stroll.user.created_at.strftime("%Y年%-m月%-d日") %></i></p>
       </div>
       <div>
-      <p><span class="glyphicon glyphicon-comment" aria-hidden="true">&emsp;</span></p>
+      <p><i class="fa fa-comments">&emsp;</i></p>
       <div id="comments_area">
         <%= render partial: 'comments/index', locals: { comments: @comments, stroll: @stroll } %>
       </div>
@@ -59,9 +59,9 @@
       <% end %>
       <p></p>
       <br>
-      <p><span class="glyphicon glyphicon-user" aria-hidden="true">&emsp;<%= @stroll.user.name %>さん</span></p>
-      <p><span class="glyphicon glyphicon-pencil" aria-hidden="true">&emsp;<%= @stroll.user.profile %></span></p>
-      <p><span class="glyphicon glyphicon-bookmark" aria-hidden="true">&ensp;</span><% @stroll.user.labels.each do |label| %>
+      <p><i class="fa fa-user">&emsp;<%= @stroll.user.name %>さん</i></p>
+      <p><i class="fa fa-id-card">&emsp;<%= @stroll.user.profile %></i></p>
+      <p><i class="fa fa-bookmark">&ensp;</i><% @stroll.user.labels.each do |label| %>
         <%= label.label_name %>
       <% end %></p>
     </div>

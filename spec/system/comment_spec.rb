@@ -44,7 +44,7 @@ RSpec.describe Comment, type: :system do
         fill_in('user_password', with: 'password')
         click_on "ログイン"
         click_link "Strolls"
-        click_button '記事を読む', match: :first
+        click_on '記事を読む', match: :first
         fill_in('comment_area', with: 'one')
         click_on 'コメントする'
         click_link '編集'
@@ -67,7 +67,7 @@ RSpec.describe Comment, type: :system do
         fill_in('user_password', with: 'password')
         click_on "ログイン"
         click_link "Strolls"
-        click_button '記事を読む', match: :first
+        click_on '記事を読む', match: :first
         fill_in('comment_area', with: 'one')
         click_on 'コメントする'
         click_link '削除'
