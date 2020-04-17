@@ -20,6 +20,11 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'spring-commands-rspec'
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -50,3 +55,6 @@ gem "font-awesome-rails"
 
 gem "fog-aws"
 gem "dotenv-rails"
+
+gem 'unicorn'
+gem 'mini_racer', platforms: :ruby
