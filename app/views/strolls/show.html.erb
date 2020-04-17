@@ -61,7 +61,7 @@
       <br>
       <p><i class="fa fa-user">&emsp;<%= @stroll.user.name %>さん</i></p>
       <p><i class="fa fa-id-card">&emsp;<%= @stroll.user.profile %></i></p>
-      <p><i class="fa fa-bookmark">&ensp;</i><% @stroll.user.labels.each do |label| %>
+      <p><i class="fa fa-bookmark">&emsp;</i><% @stroll.user.labels.each do |label| %>
         <%= label.label_name %>
       <% end %></p>
     </div>
