@@ -1,62 +1,62 @@
 require 'faker'
 
-30.times do
+60.times do
   User.create(
-    name: Faker::Games::Pokemon.name,
+    name: Faker::Name.name,
     email: Faker::Internet.email,
     password: 'password',
   )
 end
 
-5.times do |n|
+10.times do |n|
   Stroll.create(
-    title: Faker::Games::Pokemon.location,
-    content: Faker::Games::Pokemon.move,
+    title: Faker::Address.city,
+    content: Faker::Address.street_name,
     tag: "観る・遊ぶ・体験する",
     user_id: "#{n}"
   )
 end
 
-5.times do |n|
+10.times do |n|
   Stroll.create(
-    title: Faker::Games::Pokemon.location,
-    content: Faker::Games::Pokemon.move,
+    title: Faker::Address.city,
+    content: Faker::Address.street_name,
     tag: "グルメ",
     user_id: "#{n}"
   )
 end
 
-5.times do |n|
+10.times do |n|
   Stroll.create(
-    title: Faker::Games::Pokemon.location,
-    content: Faker::Games::Pokemon.move,
+    title: Faker::Address.city,
+    content: Faker::Address.street_name,
     tag: "特産品・おみやげ",
     user_id: "#{n}"
   )
 end
 
-5.times do |n|
+10.times do |n|
   Stroll.create(
-    title: Faker::Games::Pokemon.location,
-    content: Faker::Games::Pokemon.move,
+    title: Faker::Address.city,
+    content: Faker::Address.street_name,
     tag: "暮らし",
     user_id: "#{n}"
   )
 end
 
-5.times do |n|
+10.times do |n|
   Stroll.create(
-    title: Faker::Games::Pokemon.location,
-    content: Faker::Games::Pokemon.move,
+    title: Faker::Address.city,
+    content: Faker::Address.street_name,
     tag: "歴史・文化",
     user_id: "#{n}"
   )
 end
 
-5.times do |n|
+10.times do |n|
   Stroll.create(
-    title: Faker::Games::Pokemon.location,
-    content: Faker::Games::Pokemon.move,
+    title: Faker::Address.city,
+    content: Faker::Address.street_name,
     tag: "がんばろう！ちば",
     user_id: "#{n}"
   )

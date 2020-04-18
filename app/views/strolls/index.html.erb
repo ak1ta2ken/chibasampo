@@ -19,6 +19,13 @@
 <% end %>
 </div>
 <br>
+<div class="text-center">
+  <% if @q == false %>
+    <p class="btn btn-primary">投稿数&ensp;<%= @strolls.length %>&ensp;件</p>
+  <% else %>
+    <p class="btn btn-primary">投稿数&ensp;<%= @q.result.length %>&ensp;件</p>
+  <% end %>
+</div>
 <div class="message">
 <p><%= notice %></p>
 </div>
@@ -40,6 +47,9 @@
       </div>
     </div>
   <% end %>
+</div>
+<div class="text-center">
+  <%= paginate @strolls %>
 </div>
 
 <style>

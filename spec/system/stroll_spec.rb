@@ -140,14 +140,14 @@ RSpec.describe Stroll, type: :system do
         click_link ('編集')
         fill_in('stroll_title', with: 'change')
         click_on '編集する'
-        expect(page).to have_content '記事を編集しました！'
+        expect(page).to have_content '投稿を編集しました！'
         expect(page).to have_content 'change'
       end
       it '投稿した記事の削除ができること' do
         click_link '記事を読む', match: :first
         click_link ('削除')
         page.driver.browser.switch_to.alert.accept
-        expect(page).to have_content '記事を削除しました！'
+        expect(page).to have_content '投稿を削除しました！'
         expect(page).to have_no_content 'niho'
       end
       it "自分の投稿をお気に入り登録ができないこと" do
