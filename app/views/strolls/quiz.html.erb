@@ -34,6 +34,9 @@
             <img src="https://www.pref.chiba.lg.jp/kouhou/miryoku/chi-ba-kun/documents/01haru-l.jpg" class="center-block" style="height:261px; width:360px;">
           </div>
           <div class="item">
+            <img src="https://www.pref.chiba.lg.jp/kouhou/miryoku/chi-ba-kun/documents/07hinamatsuri-l.jpg" class="center-block" style="height:261px; width:360px;">
+          </div>
+          <div class="item">
             <img src="https://www.pref.chiba.lg.jp/kouhou/miryoku/chi-ba-kun/documents/02tsuyu-l.jpg" class="center-block" style="height:261px; width:360px;">
           </div>
           <div class="item">
@@ -44,9 +47,6 @@
           </div>
           <div class="item">
             <img src="https://www.pref.chiba.lg.jp/kouhou/miryoku/chi-ba-kun/documents/06fuyu-l.jpg" class="center-block" style="height:261px; width:360px;">
-          </div>
-          <div class="item">
-            <img src="https://www.pref.chiba.lg.jp/kouhou/miryoku/chi-ba-kun/documents/07hinamatsuri-l.jpg" class="center-block" style="height:261px; width:360px;">
           </div>
           <div class="item">
             <img src="https://www.pref.chiba.lg.jp/kouhou/miryoku/chi-ba-kun/documents/05xmas-l.jpg" class="center-block" style="height:261px; width:360px;">
@@ -100,7 +100,7 @@ qa[20] = ["農業産出額内訳の1位は？","畜産", "米", "野菜", '果�
 qa[21] = ["工業従事者数構成比の1位は？","化学", "食料品", "鉄鋼", '生産用機械', '電子・デバイス',2];
 qa[22] = ["マツコ・デラックスは千葉市何区出身？","稲毛区", "美浜区", "中央区", '若葉区', '花見川区',1];
 qa[23] = ["第2回日本クラムチャウダー選手権優勝チームは？","一九", "963", "花火", '貝殻亭', 'チャンカーオ',2];
-qa[24] = ["ヨネスケの出身は？","市原市", "佐倉市", "鎌ヶ谷市", '茂原市', '松戸市',1];
+qa[24] = ["ヨネスケの出身地は？","市原市", "佐倉市", "鎌ヶ谷市", '茂原市', '松戸市',1];
 qa[25] = ["県内の1日平均乗車人員トップ駅は？","新浦安", "本八幡", "西船橋", '柏', '松戸',3];
 qa[26] = ["第1回日本クラムチャウダー選手権優勝チームは？","フナバシ屋", "963", "カジェーロ", 'ちょいちょい', 'チャンカーオ',2];
 qa[27] = ["人口増率の高い市町村1位は？","流山市", "印西市", "船橋市", '木更津市', '市川市',1];
@@ -155,13 +155,13 @@ function answer(num) {
   if (count < 10) {
 	   quiz();
    } else {
-    s = "<table border='1' align='center'><p align='center'>お疲れさまでした。</p>";
-		s += "<tr align='center'><th align='center'>問題</th>";
+    s = "<table border='1.0' align='center'><p align='center'>お疲れさまでした。</p>";
+		s += "<tr align='center'><th align='center'>&ensp;問題&ensp;</th>";
 		for (n=0;n<10;n++) {
 			s += "<th align='center'>" + (n+1) + "</th>";
 		}
 		s += "</tr>";
-		s += "<tr align='center'><th align='center'>解答</th>";
+		s += "<tr align='center'><th align='center'>&ensp;解答&ensp;</th>";
 		for (n=0;n<10;n++) {
 			s += "<td align='center'>" + answers[n] + "</td>";
 		}
