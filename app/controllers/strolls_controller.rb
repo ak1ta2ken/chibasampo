@@ -35,7 +35,7 @@ class StrollsController < ApplicationController
   end
   def update
     if @stroll.update(stroll_params)
-      redirect_to stroll_path(@stroll.id), notice: "記事を編集しました！"
+      redirect_to stroll_path(@stroll.id), notice: "投稿を編集しました！"
     else
       render :edit
     end
@@ -45,7 +45,7 @@ class StrollsController < ApplicationController
       redirect_to strolls_path, notice: "権限がありません。"
     else
       @stroll.destroy
-      redirect_to strolls_path, notice:"記事を削除しました！"
+      redirect_to strolls_path, notice:"投稿を削除しました！"
     end
   end
 

@@ -14,23 +14,23 @@
           <%= f.hidden_field :profile_image_cache, autofocus: true %>
         </div>
         <br>
-        <div class="field">
+        <div class="field form-inline">
           <%= f.label :name %><br />
-          <%= f.text_field :name, autofocus: true %>
+          <%= f.text_field :name, autofocus: true, class: "form-control" %>
         </div>
         <br>
-        <div class="field">
+        <div class="field form-inline">
           <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
         </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
         <% end %>
         <br>
-        <div class="field">
+        <div class="field form-inline">
           <%= f.label :profile %><br />
-          <%= f.text_area :profile, autofocus: true %>
+          <%= f.text_area :profile, autofocus: true, class: "form-control", style: "width:350px; height:60px" %>
         </div>
         <br>
         <div class="field">
@@ -42,22 +42,22 @@
           </div>
         </div>
         <br>
-        <div class="field">
+        <div class="field form-inline">
           <%= f.label :password %>
           <% if @minimum_password_length %>
             <%= t('* 6文字以上', count: @minimum_password_length) %>
           <% end %>
           (<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)<br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
         </div>
         <br>
-        <div class="field">
+        <div class="field form-inline">
           <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
         </div>
         <p></p>
         <div class="actions">
-          <%= f.submit t('.update') %>
+          <%= f.submit t('.update'), class: "btn btn-info" %>
         </div>
         <br>
         <p><%= link_to "戻る", users_show_path, class: "btn btn-default btn-sm" %></p>
@@ -65,9 +65,8 @@
 
       <h3><%= t('退会する') %></h3>
 
-      <p><%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
+      <p><%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete, class: "btn btn-warning" %></p>
       <br>
-      <%# <%= link_to t('マイページに戻る'), users_show_path, class: "btn btn-default btn-sm" %>
     </div>
   </div>
   <div class="col-md-6">

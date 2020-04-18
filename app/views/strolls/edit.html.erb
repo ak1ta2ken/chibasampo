@@ -5,7 +5,7 @@
       <%= form_with(model: @stroll, local:true) do |form| %>
         <% if @stroll.errors.any? %>
           <div id="error_explanation">
-          <h2><%= @stroll.errors.count %>件のエラーが発生したため散歩は保存されませんでした。</h2>
+          <h2><%= @stroll.errors.count %>件のエラーが発生したため投稿は保存されませんでした。</h2>
           <ul>
             <% @stroll.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -21,23 +21,26 @@
           <%= form.hidden_field :image_cache %>
         </div>
         <br>
-        <div class="stroll_title">
+        <div class="stroll_title form-inline">
           <%= form.label :title %>
-          <%= form.text_field :title %>
+          <br>
+          <%= form.text_field :title, class: "form-control", style:"width:200px" %>
         </div>
         <br>
-        <div class="stroll_content">
-          <%= form.label :content %>&emsp;&emsp;
-          <%= form.text_area :content %>
+        <div class="stroll_content form-inline">
+          <%= form.label :content %>
+          <br>
+          <%= form.text_area :content, class: "form-control", style: "width:350px; height:60px" %>
         </div>
         <br>
-        <div class="stroll_tag">
-          <%= form.label :tag %>&emsp;&emsp;
-          <%= form.select :tag, ["観る・遊ぶ・体験する", "グルメ", "特産品・おみやげ", "暮らし", "歴史・文化", "がんばろう！ちば"], {include_blank: '選択'} %>
+        <div class="stroll_tag form-inline">
+          <%= form.label :tag %>
+          <br>
+          <%= form.select :tag, ["観る・遊ぶ・体験する", "グルメ", "特産品・おみやげ", "暮らし", "歴史・文化", "がんばろう！ちば"], {include_blank: '選択'}, class: "form-control" %>
         </div>
         <br>
         <div>
-        <%= form.submit '編集する' %>
+        <%= form.submit '編集する', class: "btn btn-info" %>
         </div>
         <br>
         <div>

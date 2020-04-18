@@ -5,15 +5,15 @@
   <p>あなたが知ってる千葉を共有してみんなで千葉を知りましょう。</p>
 </div>
 <br>
-<div class="no-gutters">
+<div class="no-gutters form-inline">
 <%= search_form_for @q do |f| %>
-  <i class="fa fa-search"></i>&ensp;
-  <%= f.search_field :title_or_content_or_user_name_or_user_profile_cont_any %>
+  <a class="redtip" data-toggle="tooltip" data-placement="left" title="タイトル、記事、投稿者名などで検索できます"><i class="fa fa-search"></i></a>&ensp;
+  <%= f.search_field :title_or_content_or_user_name_or_user_profile_cont_any, class: "form-control" %>
   &emsp;
   <i class="fa fa-tag"></i>&ensp;
-  <%= f.select :tag_eq, [["観る・遊ぶ・体験する"], ["グルメ"], ["特産品・おみやげ"], ["暮らし"], ["歴史・文化"], ["がんばろう！ちば"]], {include_blank: '選択'} %>
+  <%= f.select :tag_eq, [["観る・遊ぶ・体験する"], ["グルメ"], ["特産品・おみやげ"], ["暮らし"], ["歴史・文化"], ["がんばろう！ちば"]], {include_blank: '選択'}, class: "form-control" %>
   &emsp;
-  <%= f.submit "検索" %>
+  <%= f.submit "検索", class: "btn btn-danger" %>
   &emsp;
   <%= link_to '新しく投稿する', new_stroll_path, class: 'btn btn-danger' %>
 <% end %>
@@ -41,3 +41,17 @@
     </div>
   <% end %>
 </div>
+
+<style>
+.redtip + .tooltip .tooltip-inner {
+  background-color: white;
+  border: dotted 0.5px black;
+  color: black;
+}
+</style>
+
+<script type="text/javascript">
+  $(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+</script>
