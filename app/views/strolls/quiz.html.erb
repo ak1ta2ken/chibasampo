@@ -10,7 +10,7 @@
     <div class="text-center">
       <br>
       <h1>ちばクイズ</h1>
-      <p>全部で15問あります。めざせ全問正解。</p>
+      <p>全部で10問あります。めざせ全問正解。</p>
       <p>受験するたびに問題がシャッフルされます。</p>
       <br>
       <div class="center-block">
@@ -64,12 +64,11 @@
       </div>
       </div>
       <br>
-      <br>
+      <span id="001"></span>
       <br>
       <div id="text_q"></div>
       <br>
       <div id="text_s"></div>
-      <br>
       <br>
       <div id="text_a"></div>
     </div>
@@ -108,51 +107,63 @@ qa[27] = ["人口増率の高い市町村1位は？","流山市", "印西市", "
 qa[28] = ["人口減率の高い市町村1位は？","銚子市", "八街市", "鋸南町", '九十九里町', '長柄町',3];
 qa[29] = ["県内エリア別観光客数1位は？","香取", "東葛飾", "長生", '安房', '印旛',2];
 
+function run(){
+  for (var i = qa.length-1; i>=0; i--){
+    var rand = Math.floor(Math.random() * (i+1));
+    var temp = qa[i];
+    qa[i] = qa[rand];
+    qa[rand] = temp;
+    document.getElementById("001").innnerHTML = i + "回目= " + qa;
+    quiz(qa);
+  }
+}
+
 q_sel = 5;
-q_max = 15;
-setReady();
+// q_max = 15;
+setReady(qa);
 
 function setReady() {
   count = 0;
-	ansers = new Array();
+	answers = new Array();
+  run();
 	quiz();
 }
 
 function quiz() {
   var s, n;
-  rnd = Math.floor(Math.random() * qa.length);
-	document.getElementById("text_q").innerHTML = "第" + (count + 1) + "問　" + qa[rnd][0];
+  // rnd = Math.floor(Math.random() * qa.length);
+	document.getElementById("text_q").innerHTML = "第" + (count + 1) + "問　" + qa[count][0];
 	s = "";
 	for (n=1;n<=q_sel;n++) {
-		s += "<a href='javascript:anser(" + n + ")'>" + qa[rnd][n] + "</a>　";
+		s += "<a href='javascript:answer(" + n + ")'>" + qa[count][n] + "</a>　";
 	}
 	document.getElementById("text_s").innerHTML = s;
 }
 
-function anser(num) {
+function answer(num) {
 	var s;
 	s = "第" + (count + 1) + "問　";
-	if (num == qa[rnd][q_sel + 1]) {
-    ansers[count] = "⭕️ ";
+	if (num == qa[count][q_sel + 1]) {
+    answers[count] = "⭕️ ";
 	} else {
-    ansers[count] = "❌ ";
+    answers[count] = "❌ ";
 	}
-  s += ansers[count] + qa[rnd][num];
-	// document.getElementById("text_a").innerHTML = s;
+  s += answers[count] + qa[count][num];
+	document.getElementById("text_a").innerHTML = s;
 
 	count++;
-  if (count < q_max) {
+  if (count < 10) {
 	   quiz();
    } else {
-    s = "<table border='1' align='center'><caption><p align='center'>お疲れさまでした。</p></caption>";
+    s = "<table border='1' align='center'><p align='center'>お疲れさまでした。</p>";
 		s += "<tr align='center'><th align='center'>問題</th>";
-		for (n=0;n<15;n++) {
+		for (n=0;n<10;n++) {
 			s += "<th align='center'>" + (n+1) + "</th>";
 		}
 		s += "</tr>";
 		s += "<tr align='center'><th align='center'>解答</th>";
-		for (n=0;n<15;n++) {
-			s += "<td align='center'>" + ansers[n] + "</td>";
+		for (n=0;n<10;n++) {
+			s += "<td align='center'>" + answers[n] + "</td>";
 		}
 		s += "</tr>";
 		s += "</table>";
