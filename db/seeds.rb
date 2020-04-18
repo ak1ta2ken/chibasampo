@@ -2,16 +2,62 @@ require 'faker'
 
 30.times do
   User.create(
-    name: Faker::Name.name,
+    name: Faker::Games::Pokemon.name,
     email: Faker::Internet.email,
     password: 'password',
   )
 end
 
-30.times do |n|
+5.times do |n|
   Stroll.create(
-    title: Faker::ProgrammingLanguage.name,
-    content: Faker::Lorem.paragraphs,
+    title: Faker::Games::Pokemon.location,
+    content: Faker::Games::Pokemon.move,
+    tag: "観る・遊ぶ・体験する",
+    user_id: "#{n}"
+  )
+end
+
+5.times do |n|
+  Stroll.create(
+    title: Faker::Games::Pokemon.location,
+    content: Faker::Games::Pokemon.move,
+    tag: "グルメ",
+    user_id: "#{n}"
+  )
+end
+
+5.times do |n|
+  Stroll.create(
+    title: Faker::Games::Pokemon.location,
+    content: Faker::Games::Pokemon.move,
+    tag: "特産品・おみやげ",
+    user_id: "#{n}"
+  )
+end
+
+5.times do |n|
+  Stroll.create(
+    title: Faker::Games::Pokemon.location,
+    content: Faker::Games::Pokemon.move,
+    tag: "暮らし",
+    user_id: "#{n}"
+  )
+end
+
+5.times do |n|
+  Stroll.create(
+    title: Faker::Games::Pokemon.location,
+    content: Faker::Games::Pokemon.move,
+    tag: "歴史・文化",
+    user_id: "#{n}"
+  )
+end
+
+5.times do |n|
+  Stroll.create(
+    title: Faker::Games::Pokemon.location,
+    content: Faker::Games::Pokemon.move,
+    tag: "がんばろう！ちば",
     user_id: "#{n}"
   )
 end
