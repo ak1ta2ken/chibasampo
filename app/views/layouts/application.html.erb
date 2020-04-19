@@ -22,12 +22,12 @@
           <li class="navbar-brand" style="font-size:2rem">
             <% if user_signed_in? %>
               <%= link_to "Profile", users_show_path %>&emsp;
-              <%= link_to "Logout", destroy_user_session_path, method: :delete %>&emsp;&emsp;&emsp;
+              <%= link_to "Logout", destroy_user_session_path, method: :delete %>&emsp;
             <% else %>
               <%= link_to "Signup", new_user_registration_path %>&emsp;
               <%= link_to "Login", new_user_session_path %>&emsp;
             <% end %>
-            <a class="btn btn-warning">Sakura</a>&emsp;&emsp;
+            <a class="btn btn-warning">Sakura</a>&emsp;&emsp;&emsp;
           </li>
         </ul>
       </nav>
@@ -186,7 +186,7 @@ a {color:black;}
   	var c = new Array();
   	var k = 0;
   	d.addEventListener('scroll',function(){u = d.documentElement.scrollTop || b.scrollTop;},false);
-  	for(var i=0;i<20;i++){
+  	for(var i=0;i<30;i++){
   		var m = d.createElement('div');
   		m.id = 'hanabira'+i;
   		t[i] = Math.random()*-1000+u;
@@ -201,7 +201,7 @@ a {color:black;}
   		c[i] = 0;
   	}
   	setInterval(function(){
-  		for(var i=0;i<20;i++){
+  		for(var i=0;i<30;i++){
   			if(t[i]<u+h-40){
   				if(y[i]>=c[i]){
   					l[i] = l[i]+0.5+Math.random()*0.5;
