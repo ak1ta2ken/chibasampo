@@ -20,6 +20,9 @@ RSpec.describe Stroll, type: :system do
         expect(page).to have_content 'funa'
         expect(page).to have_content 'niho'
       end
+      it '作成済みの投稿件数が表示されること' do
+        expect(page).to have_content '3'
+      end
     end
     context '複数の投稿をした場合' do
       before do
@@ -59,6 +62,12 @@ RSpec.describe Stroll, type: :system do
         expect(page).to have_no_content 'chiba'
         expect(page).to have_no_content 'funa'
         expect(page).to have_content 'niho'
+      end
+      it '検索に該当した件数が表示されること' do
+        fill_in('q_title_or_content_or_user_name_or_user_profile_cont_any', with: 'niho')
+        select 'グルメ', from: 'q_tag_eq'
+        click_on '検索'
+        expect(page).to have_content '1'
       end
     end
     context "ログインしていないユーザーが新しく投稿するボタンを押した場合" do
