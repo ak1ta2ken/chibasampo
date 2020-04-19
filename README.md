@@ -16,6 +16,7 @@
 - Ruby 2.6.5
 - Ruby on Rails 5.2.4.2
 - PostgreSQL 12.1
+- Bootstrap 3.4.1
 
 ## 機能一覧
 - [ ] ログイン機能
