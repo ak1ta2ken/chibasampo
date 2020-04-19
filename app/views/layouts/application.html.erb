@@ -27,7 +27,7 @@
               <%= link_to "Signup", new_user_registration_path %>&emsp;
               <%= link_to "Login", new_user_session_path %>&emsp;
             <% end %>
-            <a class="btn btn-warning">Sakura</a>&emsp;&emsp;&emsp;
+            <a class="redtip btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="桜のオンとオフを切り替えます" >Sakura</a>&emsp;&emsp;&emsp;
           </li>
         </ul>
       </nav>
@@ -38,6 +38,11 @@
 </html>
 
 <style>
+.redtip + .tooltip .tooltip-inner {
+  background-color: white;
+  border: dotted 0.5px black;
+  color: black;
+}
 a {color:black;}
 #chibasampo {
   color: #FF8C00;
@@ -186,7 +191,7 @@ a {color:black;}
   	var c = new Array();
   	var k = 0;
   	d.addEventListener('scroll',function(){u = d.documentElement.scrollTop || b.scrollTop;},false);
-  	for(var i=0;i<30;i++){
+  	for(var i=0;i<50;i++){
   		var m = d.createElement('div');
   		m.id = 'hanabira'+i;
   		t[i] = Math.random()*-1000+u;
@@ -201,7 +206,7 @@ a {color:black;}
   		c[i] = 0;
   	}
   	setInterval(function(){
-  		for(var i=0;i<30;i++){
+  		for(var i=0;i<50;i++){
   			if(t[i]<u+h-40){
   				if(y[i]>=c[i]){
   					l[i] = l[i]+0.5+Math.random()*0.5;
@@ -250,4 +255,24 @@ a {color:black;}
 
   	},60);
   })(window.document,window.document.body,window);
+  jQuery(function($){
+    $('.btn.btn-warning').on('click',function(e){
+      var _currentTarget = $(e.currentTarget);
+
+      if(_currentTarget.hasClass('isHideSakura')){
+        _currentTarget.css('background-color','#f0ad4e');
+        _currentTarget.css('border-color','#f0ad4e');
+        $('.hana').show();
+      }else{
+        _currentTarget.css('background-color','#5bc0de');
+        _currentTarget.css('border-color','#5bc0de');
+        $('.hana').hide();
+      }
+      _currentTarget.toggleClass('isHideSakura');
+
+    });
+  })
+  $(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+  });
 </script>
