@@ -7,7 +7,7 @@
 <br>
 <div class="no-gutters form-inline">
 <%= search_form_for @q do |f| %>
-  <a class="redtip" data-toggle="tooltip" data-placement="left" title="タイトル、記事、投稿者名などで検索できます"><i class="fa fa-search"></i></a>&ensp;
+  <a data-toggle="tooltip" data-placement="left" title="タイトル、記事、投稿者名などで検索できます"><i class="fa fa-search"></i></a>&ensp;
   <%= f.search_field :title_or_content_or_user_name_or_user_profile_cont_any, class: "form-control" %>
   &emsp;
   <i class="fa fa-tag"></i>&ensp;
@@ -21,9 +21,9 @@
 <br>
 <div class="text-center">
   <% if @q == false %>
-    <p class="btn btn-primary">投稿数&ensp;<%= @strolls.length %>&ensp;件</p>
+    <p class="btn btn-primary btn-sm">投稿数&ensp;<%= @strolls.length %>&ensp;件</p>
   <% else %>
-    <p class="btn btn-primary">投稿数&ensp;<%= @q.result.length %>&ensp;件</p>
+    <p class="btn btn-primary btn-sm">投稿数&ensp;<%= @q.result.length %>&ensp;件</p>
   <% end %>
 </div>
 <div class="message">
@@ -54,7 +54,7 @@
 </div>
 
 <style>
-.redtip + .tooltip .tooltip-inner {
+.tooltip .tooltip-inner {
   background-color: white;
   border: dotted 0.5px black;
   color: black;

@@ -2,13 +2,16 @@
   <div class="col-md-12 text-center">
     <h1><%= @user.name %>さんのお気に入り一覧</h1>
     <br>
-    <p><%= link_to "マイページに戻る", users_show_path, class: "btn btn-default btn-sm" %></p>
+    <a class="btn btn-primary btn-sm">登録数&ensp;<%= @user.favorites.all.count %>&ensp;件</a>&emsp;&emsp;
+    <a><%= link_to "マイページに戻る", users_show_path, class: "btn btn-default btn-sm" %></a>
+    <br>
     <br>
   </div>
 </div>
 <div class="container">
   <% @favorites.each do |favorite| %>
     <div class="col-md-4">
+      <br>
       <div class="thumbnail" style="height:360px; border:none">
         <% stroll = Stroll.find(favorite.stroll_id) %>
           <% if stroll[:image] == nil %>
@@ -24,4 +27,7 @@
       </div>
     </div>
   <% end %>
+</div>
+<div class="text-center">
+  <%= paginate @favorites %>
 </div>

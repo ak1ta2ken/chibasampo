@@ -42,12 +42,15 @@
   <div class="col-md-12 text-center">
     <% if @strolls.present? %>
       <h2>投稿一覧</h2>
+      <br>
+      <p class="btn btn-primary btn-sm">投稿数&ensp;<%= @user.strolls.all.count %>&ensp;件</p>
     <% end %>
   </div>
 </div>
 <div class="container">
   <% @strolls.each do |stroll| %>
     <div class="col-md-4">
+      <br>
       <div class="thumbnail" style="height:360px; border:none">
         <% if stroll[:image] == nil %>
           <%= image_tag"03summer_ver8-l.jpg", width:"325", height:"250" %>
@@ -62,4 +65,7 @@
       </div>
     </div>
   <% end %>
+</div>
+<div class="text-center">
+  <%= paginate @strolls %>
 </div>
