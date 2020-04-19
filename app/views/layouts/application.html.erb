@@ -25,8 +25,9 @@
               <%= link_to "Logout", destroy_user_session_path, method: :delete %>&emsp;&emsp;&emsp;
             <% else %>
               <%= link_to "Signup", new_user_registration_path %>&emsp;
-              <%= link_to "Login", new_user_session_path %>&emsp;&emsp;&emsp;
+              <%= link_to "Login", new_user_session_path %>&emsp;
             <% end %>
+            <a class="btn btn-warning">Sakura</a>&emsp;&emsp;
           </li>
         </ul>
       </nav>
@@ -49,7 +50,7 @@ a {color:black;}
 	height:0;
 	width:0;
 	border: 10px solid pink;
-	border-radius: 15px;
+	border-radius: 20px;
 	border-top-right-radius: 0;
 	border-bottom-left-radius: 0;
 }
@@ -111,34 +112,34 @@ a {color:black;}
   	'.y5{-webkit-animation:v5 8s infinite;animation:v5 8s infinite;}'+
   	'.y6{-webkit-animation:v6 8s infinite;animation:v6 8s infinite;}'+
   	'@-webkit-keyframes v1{'+
-  		'from{-webkit-transform: rotate(0deg) scale(1);}'+
-  		'50%{-webkit-transform: rotate(270deg) scale(1);}'+
-  		'to{-webkit-transform: rotate(1deg) scale(1);}'+
+  		'from{-webkit-transform: rotate(0deg) scale(.8);}'+
+  		'50%{-webkit-transform: rotate(270deg) scale(.8);}'+
+  		'to{-webkit-transform: rotate(1deg) scale(.8);}'+
   	'}'+
   	'@-webkit-keyframes v2{'+
-  		'from{-webkit-transform: rotate(-90deg) scale(.9);}'+
-  		'50%{-webkit-transform: rotate(-360deg) scale(.9);}'+
-  		'to{-webkit-transform: rotate(-89deg) scale(.9);}'+
+  		'from{-webkit-transform: rotate(-90deg) scale(.7);}'+
+  		'50%{-webkit-transform: rotate(-360deg) scale(.7);}'+
+  		'to{-webkit-transform: rotate(-89deg) scale(.7);}'+
   	'}'+
   	'@-webkit-keyframes v3{'+
-  		'from{-webkit-transform: rotate(30deg) scale(.8);}'+
-  		'50%{-webkit-transform: rotate(300deg) scale(.8);}'+
-  		'to{-webkit-transform: rotate(29deg) scale(.8);}'+
+  		'from{-webkit-transform: rotate(30deg) scale(.6);}'+
+  		'50%{-webkit-transform: rotate(300deg) scale(.6);}'+
+  		'to{-webkit-transform: rotate(29deg) scale(.6);}'+
   	'}'+
   	'@-webkit-keyframes v4{'+
-  		'from{-webkit-transform: rotate(-120deg) scale(.7);}'+
-  		'50%{-webkit-transform: rotate(-390deg) scale(.7);}'+
-  		'to{-webkit-transform: rotate(-119deg) scale(.7);}'+
+  		'from{-webkit-transform: rotate(-120deg) scale(.5);}'+
+  		'50%{-webkit-transform: rotate(-390deg) scale(.5);}'+
+  		'to{-webkit-transform: rotate(-119deg) scale(.5);}'+
   	'}'+
   	'@-webkit-keyframes v5{'+
-  		'from{-webkit-transform: rotate(60deg) scale(.6);}'+
-  		'50%{-webkit-transform: rotate(330deg) scale(.6);}'+
-  		'to{-webkit-transform: rotate(59deg) scale(.6);}'+
+  		'from{-webkit-transform: rotate(60deg) scale(.4);}'+
+  		'50%{-webkit-transform: rotate(330deg) scale(.4);}'+
+  		'to{-webkit-transform: rotate(59deg) scale(.4);}'+
   	'}'+
   	'@-webkit-keyframes v6{'+
-  		'from{-webkit-transform: rotate(-150deg) scale(.5);}'+
-  		'50%{-webkit-transform: rotate(-420deg) scale(.5);}'+
-  		'to{-webkit-transform: rotate(-149deg) scale(.5);}'+
+  		'from{-webkit-transform: rotate(-150deg) scale(.3);}'+
+  		'50%{-webkit-transform: rotate(-420deg) scale(.3);}'+
+  		'to{-webkit-transform: rotate(-149deg) scale(.3);}'+
   	'}'+
   	'@keyframes v1{'+
   		'from{transform: rotate(0deg) scale(1);}'+
@@ -185,7 +186,7 @@ a {color:black;}
   	var c = new Array();
   	var k = 0;
   	d.addEventListener('scroll',function(){u = d.documentElement.scrollTop || b.scrollTop;},false);
-  	for(var i=0;i<50;i++){
+  	for(var i=0;i<20;i++){
   		var m = d.createElement('div');
   		m.id = 'hanabira'+i;
   		t[i] = Math.random()*-1000+u;
@@ -194,13 +195,13 @@ a {color:black;}
   		var clss = 'hana t'+(Math.floor(Math.random()*6)+1)+' y'+(Math.floor(Math.random()*6)+1);
   		m.setAttribute('class',clss);
   		q.appendChild(m);
-  		y[i] = Math.random()*40+5;
-  		s[i] = Math.random()*5+2;
+  		y[i] = Math.random()*30+5;
+  		s[i] = Math.random()*3+2;
   		g[i] = d.getElementById('hanabira'+i);
   		c[i] = 0;
   	}
   	setInterval(function(){
-  		for(var i=0;i<50;i++){
+  		for(var i=0;i<20;i++){
   			if(t[i]<u+h-40){
   				if(y[i]>=c[i]){
   					l[i] = l[i]+0.5+Math.random()*0.5;
@@ -247,6 +248,6 @@ a {color:black;}
   		}
   		k++;
 
-  	},45);
+  	},60);
   })(window.document,window.document.body,window);
 </script>
