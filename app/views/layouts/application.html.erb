@@ -256,22 +256,33 @@ a {color:black;}
   	},60);
   })(window.document,window.document.body,window);
   jQuery(function($){
-    $('.btn.btn-warning').on('click',function(e){
+    var _btnSakura = $('.btn.btn-warning');
+    _btnSakura.on('click',function(e){
       var _currentTarget = $(e.currentTarget);
 
       if(_currentTarget.hasClass('isHideSakura')){
         _currentTarget.css('background-color','#f0ad4e');
         _currentTarget.css('border-color','#f0ad4e');
         $('.hana').show();
+        localStorage.setItem('disActiveSakura', '0');
       }else{
         _currentTarget.css('background-color','#5bc0de');
         _currentTarget.css('border-color','#5bc0de');
         $('.hana').hide();
+        localStorage.setItem('disActiveSakura', '1');
       }
       _currentTarget.toggleClass('isHideSakura');
-
     });
-  })
+
+    var _disActiveSakura = localStorage.getItem('disActiveSakura');
+    if(_disActiveSakura === null){
+        return;
+    }
+    _disActiveSakura = parseInt(_disActiveSakura);
+    if(_disActiveSakura === 1){
+        _btnSakura.trigger('click');
+    }
+});
   $(function(){
     $('[data-toggle="tooltip"]').tooltip();
   });
