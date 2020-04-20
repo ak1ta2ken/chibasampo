@@ -67,7 +67,7 @@
       <br>
       <br>
       <div id="question_area_1" style="display:block">
-        <input type="button" class="btn" style="color: #fff; background-color: #d9534f; border-color: #d9534f; font-size:21px;" value="スタート" onclick="start_quiz();"></input>
+        <input type="button" class="btn" style="color: #fff; background-color: #d9534f; border-color: #d9534f; font-size: 21px;" value="スタート" onclick="start_quiz();" data-toggle="tooltip" data-placement="bottom" title="受験ごとに問題が変わります"></input>
       </div>
       <div id="question_area_2" style="display:none;">
         <div id="text_q">第1問　銚子漁港の水揚げ高が多い魚は？</div>
@@ -77,6 +77,14 @@
         <div id="text_a"></div>
       </div>
     </div>
+
+<style>
+.tooltip .tooltip-inner {
+  background-color: white;
+  border: dotted 0.5px black;
+  color: black;
+}
+</style>
 
 <script type="text/javascript">
 
@@ -187,10 +195,13 @@ function answer(num) {
     document.getElementById("text_q").innerHTML = s;
     document.getElementById("text_s").innerHTML = ans;
     //s = "<a href='javascript:setReady()'><p align='center'>はじめから</p></a>";
-    s = "<input type=\"button\" class=\"btn\" style=\"color: ##3D3D3D; background-color: #FFFFFF; border-color: #CCCCCC;\" value=\"はじめから\" onclick=\"setReady();\"></input>";
+    s = "<input type=\"button\"class=\"btn\"style=\"color: #3d3d3d; background-color: #fff; border-color: #cccccc;\"value=\"はじめから\" onclick=\"setReady();\"></input>";
     document.getElementById("text_a").innerHTML = s;
   }
 }
+$(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
 </script>
 
   </body>
