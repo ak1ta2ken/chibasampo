@@ -68,7 +68,7 @@
       <br>
       <br>
       <div id="question_area_1" style="display:block" class="hidden-xs col-sm-12 col-md-12 col-lg-12">
-        <input type="button" class="btn" style="color: #fff; background-color: #d9534f; border-color: #d9534f; font-size: 21px;" value="スタート" onclick="start_quiz();" data-toggle="tooltip" data-placement="bottom" title="受験ごとに問題が変わります"></input>
+        <input type="button" class="btn" style="color: #fff; background-color: #d9534f; border-color: #d9534f; font-size: 21px;" value="スタート" onclick="start_quiz();"></input>
       </div>
       <div id="question_area_2" style="display:none;">
         <div id="text_q">第1問　銚子漁港の水揚げ高が多い魚は？</div>
@@ -79,14 +79,6 @@
       </div>
       </div>
     </div>
-
-<style>
-.tooltip .tooltip-inner {
-  background-color: white;
-  border: dotted 0.5px black;
-  color: black;
-}
-</style>
 
 <script type="text/javascript">
 
@@ -201,9 +193,6 @@ function answer(num) {
     document.getElementById("text_a").innerHTML = s;
   }
 }
-$(function(){
-  $('[data-toggle="tooltip"]').tooltip();
-});
 </script>
 
   </body>
