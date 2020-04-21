@@ -23,7 +23,6 @@
           <li data-target="carousel" data-slide-to="5"></li>
           <li data-target="carousel" data-slide-to="6"></li>
           <li data-target="carousel" data-slide-to="7"></li>
-          <li data-target="carousel" data-slide-to="8"></li>
         </ol>
         <div class="carousel-inner">
           <div class="item active">
@@ -50,9 +49,6 @@
           <div class="item">
             <img src="https://www.pref.chiba.lg.jp/kouhou/miryoku/chi-ba-kun/documents/06fuyu-l.jpg" class="center-block" style="height:261px; width:360px;">
           </div>
-          <div class="item">
-            <img src="https://www.pref.chiba.lg.jp/kouhou/miryoku/chi-ba-kun/images/birth.png" class="center-block" style="height:261px; width:360px;">
-          </div>
           <a class="carousel-control left" href="#carousel" data-slide="prev">
             <span class="glyohicon glyphycon-chevron-left"></span>
           </a>
@@ -62,7 +58,7 @@
         </div>
       </div>
       </div>
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" style="margin-top:5px">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:5px">
       <span id="001"></span>
       <br>
       <br>
@@ -79,6 +75,21 @@
       </div>
       </div>
     </div>
+
+<style>
+table {
+  text-align: center;
+}
+table tr {
+  text-align: center;
+}
+table th {
+  text-align: center;
+}
+table td {
+  text-align: center;
+}
+</style>
 
 <script type="text/javascript">
 
@@ -161,11 +172,11 @@ function quiz() {
 function answer(num) {
   var s;
   var ans;
-  s = "第" + (count + 1) + "問　";
+  s = "第" + (count + 1) + "問 ";
   if (num == qa[count][q_sel + 1]) {
-    answers[count] = "⭕️ ";
+    answers[count] = "⭕️";
   } else {
-    answers[count] = "❌ ";
+    answers[count] = "❌";
   }
   s += answers[count] + qa[count][num];
   document.getElementById("text_a").innerHTML = s;
@@ -174,21 +185,20 @@ function answer(num) {
   if (count < 10) {
     quiz();
   } else {
-    s = "<table border='1.0' align='center'><p align='center'>解答ありがとうございました。</p>";
-    s += "<tr align='center'><th align='center'>&ensp;問題&ensp;</th>";
+    s = "<table border='1.0' align='center'><p>解答ありがとうございました。</p>";
+    s += "<tr><th>&ensp;問題&ensp;</th>";
     for (n=0;n<10;n++) {
-      s += "<th align='center'>" + (n+1) + "</th>";
+      s += "<th>" + (n+1) + "</th>";
     }
     s += "</tr>";
-    s += "<tr align='center'><th align='center'>&ensp;解答&ensp;</th>";
+    s += "<tr><th>&ensp;解答&ensp;</th>";
     for (n=0;n<10;n++) {
-      s += "<td align='center'>" + answers[n] + "</td>";
+      s += "<td>&ensp;" + answers[n] + "</td>";
     }
     s += "</tr>";
     s += "</table>";
     document.getElementById("text_q").innerHTML = s;
     document.getElementById("text_s").innerHTML = ans;
-    //s = "<a href='javascript:setReady()'><p align='center'>はじめから</p></a>";
     s = "<input type=\"button\"class=\"btn\"style=\"color: #3d3d3d; background-color: #fff; border-color: #cccccc;\"value=\"はじめから\" onclick=\"setReady();\"></input>";
     document.getElementById("text_a").innerHTML = s;
   }
