@@ -19,7 +19,7 @@
         <a class="navbar-brand" href="/strolls/people" style="font-size:1.8rem">People<span class="sr-only">(current)</span></a>
         <a class="navbar-brand" href="/strolls/quiz" style="font-size:1.8rem">Quiz<span class="sr-only">(current)</span></a>
         <ul class="navbar-right">
-          <li class="navbar-brand" style="font-size:1.8rem">
+          <li class="navbar-brand" style="font-size:1.5rem">
             <% if user_signed_in? %>
               <%= link_to "Profile", users_show_path %>&emsp;
               <%= link_to "Logout", destroy_user_session_path, method: :delete %>&emsp;
