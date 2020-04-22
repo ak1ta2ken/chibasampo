@@ -13,7 +13,7 @@
       <br>
       <p><i class="fa fa-user">&emsp;<%= @user.name %>さん</i></p>
       <p><i class="fa fa-envelope">&emsp;<%= @user.email %></i></p>
-      <p><i class="fa fa-id-card">&emsp;<%= @user.profile %></i></p>
+      <i class="fa fa-id-card"><br>&emsp;<%= simple_format(@user.profile) %></i>
       <p><i class="fa fa-bookmark">&emsp;</i><% @user.labels.each do |label| %>
         <%= label.label_name %>
       <% end %></p>

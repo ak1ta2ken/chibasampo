@@ -15,7 +15,7 @@
         <div class="text-center">
         <h4>『<%= @stroll.title %>』</h4>
         </div>
-        <p><i class="fa fa-file">&emsp;<%= @stroll.content %></i></p>
+        <i class="fa fa-file"><br>&emsp;<%= simple_format(@stroll.content) %></i>
         <p><i class="fa fa-tag">&emsp;<%= @stroll.tag %></i></p>
         <p><i class="fa fa-edit">&emsp;<%= @stroll.user.created_at.strftime("%Y年%-m月%-d日") %></i></p>
       </div>
@@ -62,7 +62,7 @@
       <p></p>
       <br>
       <p><i class="fa fa-user">&emsp;<%= @stroll.user.name %>さん</i></p>
-      <p><i class="fa fa-id-card">&emsp;<%= @stroll.user.profile %></i></p>
+      <i class="fa fa-id-card"><br>&emsp;<%= simple_format(@stroll.user.profile) %></i>
       <p><i class="fa fa-bookmark">&emsp;</i><% @stroll.user.labels.each do |label| %>
         <%= label.label_name %>
       <% end %></p>
