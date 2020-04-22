@@ -1,4 +1,4 @@
-# chibasampo
+# ChibaSampo
 
 ## 概要
 - 千葉の画像を投稿するアプリ
