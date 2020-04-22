@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-    <div class="thumbnail" style="height:800px; border:none">
+    <div class="thumbnail" style="height:900px; border:none">
       <h2><%= t('プロフィールを編集する', resource: resource.model_name.human) %></h2>
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -74,7 +74,11 @@
       <br>
       <br>
       <br>
-      <iframe width="530" height="315" src="https://www.youtube.com/embed/i7OE3IzHSts" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <% if @user[:profile_image] == nil %>
+        <%= image_tag"birthday.png", width:"325", height:"250" %>
+      <% else %>
+        <%= image_tag @user.profile_image.url if @user.profile_image && @user.profile_image.url%>
+      <% end %>
     </div>
   </div>
 </div>
