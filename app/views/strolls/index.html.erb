@@ -43,7 +43,7 @@
         <% end %>
         <div class="caption text-center">
           <h4>『<%= stroll.title %>』</h4>
-          <p><i class="fa fa-edit" aria-hidden="true">&emsp;<%= stroll.user.created_at.strftime("%Y年%-m月%-d日") %></i></p>
+          <p><i class="fa fa-edit" aria-hidden="true">&emsp;<%= stroll.created_at.strftime("%Y年%-m月%-d日") %></i></p>
           <p><%= link_to '記事を読む', stroll_path(stroll.id), class: "btn btn-default btn-sm" %></p>
         </div>
       </div>
