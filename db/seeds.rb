@@ -2,7 +2,7 @@ require 'faker'
 
 60.times do
   User.create(
-    name: Faker::Name.name,
+    name: Faker::Games::Pokemon.name,
     email: Faker::Internet.email,
     password: 'password',
   )
@@ -10,8 +10,8 @@ end
 
 10.times do |n|
   Stroll.create(
-    title: Faker::Address.city,
-    content: Faker::Address.street_name,
+    title: Faker::Games::Pokemon.location,
+    content: Faker::Games::Pokemon.move,
     tag: "観る・遊ぶ・体験する",
     user_id: "#{n}"
   )
@@ -19,8 +19,8 @@ end
 
 10.times do |n|
   Stroll.create(
-    title: Faker::Address.city,
-    content: Faker::Address.street_name,
+    title: Faker::Games::Pokemon.location,
+    content: Faker::Games::Pokemon.move,
     tag: "グルメ",
     user_id: "#{n}"
   )
@@ -28,8 +28,8 @@ end
 
 10.times do |n|
   Stroll.create(
-    title: Faker::Address.city,
-    content: Faker::Address.street_name,
+    title: Faker::Games::Pokemon.location,
+    content: Faker::Games::Pokemon.move,
     tag: "特産品・おみやげ",
     user_id: "#{n}"
   )
@@ -37,8 +37,8 @@ end
 
 10.times do |n|
   Stroll.create(
-    title: Faker::Address.city,
-    content: Faker::Address.street_name,
+    title: Faker::Games::Pokemon.location,
+    content: Faker::Games::Pokemon.move,
     tag: "暮らし",
     user_id: "#{n}"
   )
@@ -46,8 +46,8 @@ end
 
 10.times do |n|
   Stroll.create(
-    title: Faker::Address.city,
-    content: Faker::Address.street_name,
+    title: Faker::Games::Pokemon.location,
+    content: Faker::Games::Pokemon.move,
     tag: "歴史・文化",
     user_id: "#{n}"
   )
@@ -55,8 +55,8 @@ end
 
 10.times do |n|
   Stroll.create(
-    title: Faker::Address.city,
-    content: Faker::Address.street_name,
+    title: Faker::Games::Pokemon.location,
+    content: Faker::Games::Pokemon.move,
     tag: "がんばろう！ちば",
     user_id: "#{n}"
   )
@@ -75,3 +75,4 @@ Label.create!(label_name: ' なのはな体操')
 Label.create!(label_name: ' ピーナッツサブレー')
 Label.create!(label_name: ' マックスコーヒー')
 Label.create!(label_name: ' I LOVE 千葉')
+Label.create!(label_name: ' 初音ミク')
