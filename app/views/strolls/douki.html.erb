@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>chibasampo</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center form-inline">
+      <div id="app">
+        <br>
+        <br>
+        お名前&ensp;<input v-model="name" class="form-control">&emsp;
+        コース&ensp;<input v-model="cource" class="form-control">&emsp;
+        受講期&ensp;<input v-model="acceptancePeriod" class="form-control">
+        <button v-on:click="addStudent" class="btn btn-danger" style="margin-left:15px">追加</button>
+        <br>
+        <br>
+        <p class="btn btn-primary">お世話になりました！</p>
+        <br>
+        <br>
+          <ul>
+            <div class="btn-group-vertical">
+            <li v-for="student in students" v-bind:key="student.id" class="btn btn-default">
+              {{student.name}}　
+              {{student.cource}}　
+              {{student.acceptancePeriod}}
+            </li>
+          </div>
+          <br>
+          <br>
+          </ul>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  new Vue({
+  el: '#app',
+  data: {
+    name: '',
+    cource: '',
+    acceptancePeriod: '',
+    defaultLastId: 10,
+    students: [
+      { id: 1, name: '葉山哲弘', cource: 'Webエンジニアコース', acceptancePeriod: '2020年01月期' },
+      { id: 2, name: '松橋龍也', cource: 'Webエンジニアコース', acceptancePeriod: '2020年01月期' },
+      { id: 3, name: '小高公久', cource: 'Webエンジニアコース', acceptancePeriod: '2020年01月期' },
+      { id: 4, name: '上口　慧', cource: 'Webエンジニアコース', acceptancePeriod: '2020年01月期' },
+      { id: 5, name: '三原良介', cource: 'Webエンジニアコース', acceptancePeriod: '2020年01月期' },
+      { id: 6, name: '青木一泰', cource: 'Webエンジニアコース', acceptancePeriod: '2020年01月期' },
+      { id: 7, name: '磯谷和樹', cource: 'Webエンジニアコース', acceptancePeriod: '2020年01月期' },
+      { id: 8, name: '松浦峻介', cource: 'Webエンジニアコース', acceptancePeriod: '2020年01月期' },
+      { id: 9, name: '松原弘樹', cource: 'Webエンジニアコース', acceptancePeriod: '2020年01月期' },
+      { id: 10, name: '渡邉大佑', cource: 'Webエンジニアコース', acceptancePeriod: '2020年01月期' },
+    ]
+  },
+  methods: {
+    addStudent: function() {
+      this.students.push({
+        id: this.defaultLastId += 1,
+        name: this.name,
+        cource: this.cource,
+        acceptancePeriod: this.acceptancePeriod
+      })
+      this.name = null
+      this.cource = null
+      this.acceptancePeriod = null
+      }
+    }
+  })
+</script>

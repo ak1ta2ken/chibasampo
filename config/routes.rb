@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'strolls/ganbarou' => 'strolls#ganbarou'
   get 'strolls/people' => 'strolls#people'
   get 'strolls/quiz' => 'strolls#quiz'
+  get 'strolls/douki' => 'strolls#douki'
   resources :strolls do
     resources :comments
   end
